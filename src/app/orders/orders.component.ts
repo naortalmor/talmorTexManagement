@@ -20,4 +20,8 @@ export class OrdersComponent implements OnInit {
   getOrders(): void {
     this.orderService.getOrders().subscribe(allOrders => this.orders = allOrders);
   }
+
+  newOrder(): void {
+
+  }
 }

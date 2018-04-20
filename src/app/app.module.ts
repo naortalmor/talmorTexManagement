@@ -9,7 +9,8 @@ import { OrdersComponent } from './orders/orders.component';
 import { OredersService } from './oreders.service';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
+import { NewOrderComponent } from './new-order/new-order.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AppRoutingModule } from './/app-routing.module';
     AppComponent,
     OrdersComponent,
     StatisticsComponent,
-    NavigationComponent
+    NavigationComponent,
+    NewOrderComponent
   ],
   imports: [
     BrowserModule,
