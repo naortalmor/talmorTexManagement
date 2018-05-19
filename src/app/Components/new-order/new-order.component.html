@@ -1,0 +1,34 @@
+<div>
+  <h1>הזמנה חדשה </h1>
+  <div class="container">
+    <label for="customerName">שם לקוח</label>
+    <input id="customerName" type="text" name="customerName" placeholder="הכנס שם מלא של לקוח .. " [(ngModel)]="customerName" required>
+  </div>
+  <div class="container">
+  <label for="email">שם לקוח</label>
+  <input id="email" type="text" name="email" placeholder="הכנס כתובת E-Mail של לקוח .. " [(ngModel)]="customerName" required>
+</div>
+  <div class="container">
+    <label for="lastDate">תאריך אחרון לאספקה</label>
+    <input id="lastDate" type="date" name="lastDate" [(ngModel)]="lastDate" class="bs-datepicker form-control">
+  </div>
+  <div class="container">
+    <label>מידות וילון</label>
+    <div class="row" id="curtainSize">
+      <div class="col-6">
+        <label for="height">גובה </label>
+        <input id="height" min="0" type="number" name="height" [(ngModel)]="height" placeholder="הכנס את גובה הוילון ..">
+      </div>
+      <div class="col-6">
+        <label for="width">רוחב</label>
+        <input id="width" min="0" type="number" name="width" [(ngModel)]="width" placeholder="הכנס את רוחב הוילון ..">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <label for="cost">מחיר</label>
+    <input id="cost" type="number" name="cost" [(ngModel)]="cost" placeholder="הכנס את מחיר הוילון ..">
+  </div>
+  <button (click)="commitNewOrder()">הוסף הזמנה חדשה של {{customerName}}</button>
+</div>
+

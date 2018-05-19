@@ -5,12 +5,14 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
-import { OrdersComponent } from './orders/orders.component';
-import { OredersService } from './oreders.service';
-import { StatisticsComponent } from './statistics/statistics.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { AppRoutingModule } from './app-routing.module';
-import { NewOrderComponent } from './new-order/new-order.component';
+import { OrdersComponent } from './Components/orders/orders.component';
+import { OredersService } from './Services/Orders/oreders.service';
+import { StatisticsComponent } from './Components/statistics/statistics.component';
+import { NavigationComponent } from './Components/navigation/navigation.component';
+import { AppRoutingModule } from './Routes/app-routing.module';
+import { NewOrderComponent } from './Components/new-order/new-order.component';
+import { OrderComponent } from './Components/order/order.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -19,10 +21,12 @@ import { NewOrderComponent } from './new-order/new-order.component';
     OrdersComponent,
     StatisticsComponent,
     NavigationComponent,
-    NewOrderComponent
+    NewOrderComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
