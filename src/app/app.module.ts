@@ -12,8 +12,10 @@ import { NavigationComponent } from './Components/navigation/navigation.componen
 import { AppRoutingModule } from './Routes/app-routing.module';
 import { NewOrderComponent } from './Components/new-order/new-order.component';
 import { OrderComponent } from './Components/order/order.component';
-import {FormsModule} from '@angular/forms';
+import {MaterialModule} from './material.module';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,10 @@ import {FormsModule} from '@angular/forms';
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [OredersService],
   bootstrap: [AppComponent]

@@ -11,7 +11,7 @@ import {Order} from '../../Interfaces/order';
 export class NewOrderComponent implements OnInit {
 
   // order data
-  customerName = '';
+  customerName = 'NARO';
   lastDate: Date;
   height: number;
   width: number;

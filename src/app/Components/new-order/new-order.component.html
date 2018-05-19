@@ -5,10 +5,6 @@
     <input id="customerName" type="text" name="customerName" placeholder="הכנס שם מלא של לקוח .. " [(ngModel)]="customerName" required>
   </div>
   <div class="container">
-  <label for="email">שם לקוח</label>
-  <input id="email" type="text" name="email" placeholder="הכנס כתובת E-Mail של לקוח .. " [(ngModel)]="customerName" required>
-</div>
-  <div class="container">
     <label for="lastDate">תאריך אחרון לאספקה</label>
     <input id="lastDate" type="date" name="lastDate" [(ngModel)]="lastDate" class="bs-datepicker form-control">
   </div>
@@ -31,4 +27,3 @@
   </div>
   <button (click)="commitNewOrder()">הוסף הזמנה חדשה של {{customerName}}</button>
 </div>
-
