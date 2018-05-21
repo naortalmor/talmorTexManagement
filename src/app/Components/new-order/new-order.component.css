@@ -1,14 +1,3 @@
-input {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  text-align: right;
-}
-
 button {
   width: 100%;
   background-color: #393f62;
@@ -24,31 +13,21 @@ button:hover {
   background-color: #45a049;
 }
 
-div, form{
+form{
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 15px;
+  width: 40%;
+  margin: 0 auto;
 }
 h1 {
   text-align: center;
   color: #23244a;
   font-size: 25px;
 }
-.errorDNSName {
-  border: 1px solid #ff4d4d;
+mat-form-field {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-.errorNickname {
-  border: 1px solid #ff4d4d;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border-radius: 4px;
-  box-sizing: border-box;
+  text-align: right;
+  margin-bottom: 20px;
+  padding-right: 30px;
 }

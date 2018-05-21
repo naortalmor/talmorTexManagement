@@ -1,29 +1,71 @@
-<div>
+<div class="formContainer">
   <h1>הזמנה חדשה </h1>
-  <div class="container">
-    <label for="customerName">שם לקוח</label>
-    <input id="customerName" type="text" name="customerName" placeholder="הכנס שם מלא של לקוח .. " [(ngModel)]="customerName" required>
-  </div>
-  <div class="container">
-    <label for="lastDate">תאריך אחרון לאספקה</label>
-    <input id="lastDate" type="date" name="lastDate" [(ngModel)]="lastDate" class="bs-datepicker form-control">
-  </div>
-  <div class="container">
-    <label>מידות וילון</label>
-    <div class="row" id="curtainSize">
-      <div class="col-6">
-        <label for="height">גובה </label>
-        <input id="height" min="0" type="number" name="height" [(ngModel)]="height" placeholder="הכנס את גובה הוילון ..">
-      </div>
-      <div class="col-6">
-        <label for="width">רוחב</label>
-        <input id="width" min="0" type="number" name="width" [(ngModel)]="width" placeholder="הכנס את רוחב הוילון ..">
+  <form>
+    <!-- Customer Name Field -->
+    <mat-form-field>
+      <input matInput placeholder="שם לקוח*" [formControl]="nameFormControl" [errorStateMatcher]="matcher" [(ngModel)]="name">
+      <mat-error *ngIf="nameFormControl.hasError('required')">
+        אנא הזן שם לקוח
+      </mat-error>
+    </mat-form-field>
+    <!-- Phone Field -->
+    <mat-form-field>
+      <input matInput placeholder="מספר טלפון*" [formControl]="phoneFormControl" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="phoneFormControl.hasError('required')">
+        אנא הזן מספר טלפון
+      </mat-error>
+    </mat-form-field>
+    <!-- Email Address Field -->
+    <mat-form-field>
+      <input matInput placeholder="כתובת E-Mail" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        הנה הזן כתובת מייל תקינה
+      </mat-error>
+    </mat-form-field>
+    <!-- Date Field-->
+    <mat-form-field>
+      <input matInput placeholder="תאריך אחרון לאספקה*" type="date" [formControl]="dateFormControl"
+             [(ngModel)]="lastSupplyDate" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="dateFormControl.hasError('required')">
+        אנא הזן תאריך אחרון לאספקה
+      </mat-error>
+      <mat-error *ngIf="dateFormControl.hasError('dateValidator') && !dateFormControl.hasError('required')">
+        אנא הזן תאריך אחרון לאספקה תקין
+      </mat-error>
+    </mat-form-field>
+    <!-- Size Field -->
+    <div class="container">
+      <div style="text-align: center"> מידות* </div>
+      <div class="row">
+        <mat-form-field class="col-6">
+          <input matInput placeholder="רוחב" [formControl]="widthFormControl" [errorStateMatcher]="matcher" type="number">
+          <mat-error *ngIf="widthFormControl.hasError('required')">
+            אנא הזן רוחב וילון
+          </mat-error>
+          <mat-error *ngIf="widthFormControl.hasError('min') && !widthFormControl.hasError('required')">
+            אנא הזן רוחב וילון חיובי
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-6">
+          <input matInput placeholder="גובה" [formControl]="heightFormControl" [errorStateMatcher]="matcher" type="number">
+          <mat-error *ngIf="heightFormControl.hasError('required')">
+            אנא הזן גובה וילון
+          </mat-error>
+          <mat-error *ngIf="heightFormControl.hasError('min') && !heightFormControl.hasError('required')">
+            אנא הזן גובה וילון חיובי
+          </mat-error>
+        </mat-form-field>
       </div>
     </div>
-  </div>
-  <div class="container">
-    <label for="cost">מחיר</label>
-    <input id="cost" type="number" name="cost" [(ngModel)]="cost" placeholder="הכנס את מחיר הוילון ..">
-  </div>
-  <button (click)="commitNewOrder()">הוסף הזמנה חדשה של {{customerName}}</button>
+    <!-- Cost Field -->
+    <mat-form-field>
+      <input matInput placeholder="מחיר*" [formControl]="costFormControl" [errorStateMatcher]="matcher" type="number">
+      <mat-error *ngIf="costFormControl.hasError('required')">
+        אנא הזן גובה וילון
+      </mat-error>
+      <mat-error *ngIf="costFormControl.hasError('min') && !costFormControl.hasError('required')">
+        אנא הזן מחיר וילון חיובי
+      </mat-error>
+    </mat-form-field>
+  </form>
 </div>
