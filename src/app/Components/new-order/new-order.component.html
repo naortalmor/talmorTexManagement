@@ -1,31 +1,31 @@
 <div class="formContainer">
   <h1>הזמנה חדשה </h1>
-  <form>
+  <form (ngSubmit)="commitNewOrder()" #newOrederForm="ngForm">
     <!-- Customer Name Field -->
     <mat-form-field>
-      <input matInput placeholder="שם לקוח*" [formControl]="nameFormControl" [errorStateMatcher]="matcher" [(ngModel)]="name">
+      <input matInput placeholder="שם לקוח" [formControl]="nameFormControl" [errorStateMatcher]="matcher" [(ngModel)]="name" required>
       <mat-error *ngIf="nameFormControl.hasError('required')">
         אנא הזן שם לקוח
       </mat-error>
     </mat-form-field>
     <!-- Phone Field -->
     <mat-form-field>
-      <input matInput placeholder="מספר טלפון*" [formControl]="phoneFormControl" [errorStateMatcher]="matcher">
+      <input matInput placeholder="מספר טלפון" [formControl]="phoneFormControl" [errorStateMatcher]="matcher" [(ngModel)]="phone" required>
       <mat-error *ngIf="phoneFormControl.hasError('required')">
         אנא הזן מספר טלפון
       </mat-error>
     </mat-form-field>
     <!-- Email Address Field -->
     <mat-form-field>
-      <input matInput placeholder="כתובת E-Mail" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+      <input matInput placeholder="כתובת E-Mail" [formControl]="emailFormControl" [errorStateMatcher]="matcher" [(ngModel)]="email" required>
       <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
         הנה הזן כתובת מייל תקינה
       </mat-error>
     </mat-form-field>
     <!-- Date Field-->
     <mat-form-field>
-      <input matInput placeholder="תאריך אחרון לאספקה*" type="date" [formControl]="dateFormControl"
-             [(ngModel)]="lastSupplyDate" [errorStateMatcher]="matcher">
+      <input matInput placeholder="תאריך אחרון לאספקה" type="date" [formControl]="dateFormControl"
+             [(ngModel)]="lastSupplyDate" [errorStateMatcher]="matcher" required>
       <mat-error *ngIf="dateFormControl.hasError('required')">
         אנא הזן תאריך אחרון לאספקה
       </mat-error>
@@ -38,7 +38,8 @@
       <div style="text-align: center"> מידות* </div>
       <div class="row">
         <mat-form-field class="col-6">
-          <input matInput placeholder="רוחב" [formControl]="widthFormControl" [errorStateMatcher]="matcher" type="number">
+          <input matInput placeholder="רוחב" [formControl]="widthFormControl" [errorStateMatcher]="matcher" type="number" step="10"
+                 [(ngModel)]="width">
           <mat-error *ngIf="widthFormControl.hasError('required')">
             אנא הזן רוחב וילון
           </mat-error>
@@ -47,7 +48,8 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field class="col-6">
-          <input matInput placeholder="גובה" [formControl]="heightFormControl" [errorStateMatcher]="matcher" type="number">
+          <input matInput placeholder="גובה" [formControl]="heightFormControl" [errorStateMatcher]="matcher" type="number" step="10"
+                 [(ngModel)]="height">
           <mat-error *ngIf="heightFormControl.hasError('required')">
             אנא הזן גובה וילון
           </mat-error>
@@ -59,13 +61,19 @@
     </div>
     <!-- Cost Field -->
     <mat-form-field>
-      <input matInput placeholder="מחיר*" [formControl]="costFormControl" [errorStateMatcher]="matcher" type="number">
+      <input matInput placeholder="מחיר" [formControl]="costFormControl" [errorStateMatcher]="matcher" type="number" step="250"
+        [(ngModel)]="cost">
       <mat-error *ngIf="costFormControl.hasError('required')">
-        אנא הזן גובה וילון
+        אנא הזן מחיר וילון
       </mat-error>
       <mat-error *ngIf="costFormControl.hasError('min') && !costFormControl.hasError('required')">
         אנא הזן מחיר וילון חיובי
       </mat-error>
     </mat-form-field>
+    <button type="submit" class="btn btn-default"
+    [disabled]="!nameFormControl.valid || !phoneFormControl.valid ||
+                !emailFormControl.valid || !dateFormControl.valid ||
+                !widthFormControl.valid || !heightFormControl.valid || !costFormControl.valid">
+      צור הזמנה חדשה</button>
   </form>
 </div>

@@ -1,3 +1,5 @@
+import {Statuses} from './Statuses';
+
 export class Order {
   orderDate: Date;
   id: number;
@@ -6,4 +8,6 @@ export class Order {
   height: Number;
   width: Number;
   cost: Number;
+  status: Statuses;
 }
+

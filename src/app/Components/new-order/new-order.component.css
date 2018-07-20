@@ -31,3 +31,7 @@ mat-form-field {
   margin-bottom: 20px;
   padding-right: 30px;
 }
+button:disabled {
+  cursor: not-allowed;
+}
+
