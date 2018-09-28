@@ -17,6 +17,7 @@ import {MaterialModule} from './material.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {OrderDetailsComponent} from './Components/order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {HttpClientModule} from '@angular/common/http';
     NavigationComponent,
     NewOrderComponent,
     OrderComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,

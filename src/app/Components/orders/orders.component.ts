@@ -10,6 +10,7 @@ import {OredersService} from '../../Services/Orders/oreders.service';
 export class OrdersComponent implements OnInit {
 
   orders: Order[] = [];
+  selectedOrder: Order;
 
   constructor(private orderService: OredersService) { }
 
@@ -22,6 +23,9 @@ export class OrdersComponent implements OnInit {
   }
 
   newOrder(): void {
+  }
 
+  selectOrder(order: Order) {
+    this.selectedOrder = order;
   }
 }

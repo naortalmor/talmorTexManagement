@@ -1,11 +1,18 @@
 <div>
-  <div class="row">
-    <h1 class="jasmine-title col-2">All Orders</h1>
+  <div>
+    <h1>All Orders</h1>
     <div>
       <a routerLink="/newOrder">New Order</a>
     </div>
   </div>
-  <app-order *ngFor="let order of orders"
-              [currOrder]="order">
-  </app-order>
+  <div *ngIf="!selectedOrder" class="container">
+    <app-order *ngFor="let order of orders"
+               [currOrder]="order"
+               (click)="selectOrder(order)">
+    </app-order>
+  </div>
+  <div *ngIf="selectedOrder">
+    <app-order-details [selectedOrder]="selectedOrder">
+    </app-order-details>
+  </div>
 </div>

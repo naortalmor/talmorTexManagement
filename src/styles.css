@@ -6,3 +6,9 @@ body {
   direction: rtl;
   text-align: right;
 }
+app-order {
+  cursor: pointer;
+  background-color: #ede7ef;
+  padding: 7px;
+  border-radius: 13px;
+}
