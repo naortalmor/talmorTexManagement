@@ -1,2 +1,7 @@
-<app-navigation></app-navigation>
-<router-outlet></router-outlet>
+<app-navigation (viewEventEmitter)="onViewChanges($event)"></app-navigation>
+<div *ngIf="view=='orders'">
+  <app-orders></app-orders>
+</div>
+<div *ngIf="view=='stats'">
+  <app-statistics></app-statistics>
+</div>

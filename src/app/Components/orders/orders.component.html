@@ -2,10 +2,22 @@
   <div>
     <h1>All Orders</h1>
     <div>
-      <a routerLink="/newOrder">New Order</a>
+      <div> New Order </div>
     </div>
   </div>
-  <div *ngIf="!selectedOrder" class="container">
+  <div *ngIf="!selectedOrder">
+    <div class="order">
+      <div>
+        <h4>שם לקוח</h4>
+      </div>
+      <div>
+        <h4>סטאטוס הזמנה</h4>
+      </div>
+      <div>
+        <h4>מחיר</h4>
+      </div>
+    </div>
+    <hr>
     <app-order *ngFor="let order of orders"
                [currOrder]="order"
                (click)="selectOrder(order)">

@@ -1,11 +1,8 @@
-<nav class="navbar navbar-expand-sm bg-light">
-  <a class="navbar-brand" routerLink="/orders">Talmor Tex</a>
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/orders">הזמנות</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/statistics">סטטיסטיקות</a>
-    </li>
-  </ul>
-</nav>
+<div class="container">
+  <div>TalmorTex</div>
+  <div class="nav-items">
+    <div class="nav-item" (click)="onViewItem('orders')">הזמנות</div>
+    <hr>
+    <div class="nav-item" (click)="onViewItem('stats')">סטטיסטיקה</div>
+  </div>
+</div>
