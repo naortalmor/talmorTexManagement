@@ -1,0 +1,33 @@
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 30px 5px 0;
+  padding: 5px;
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon-text {
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.nav-item {
+  margin: 3px 5px 0 15px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1c0a76cf;
+}
+
+.nav-item:hover {
+  text-decoration: underline;
+  color: #117a8b;
+  cursor: pointer;
+}
+
+.selected {
+  text-decoration: underline #17a2b8;
+}

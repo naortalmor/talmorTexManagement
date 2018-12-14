@@ -5,26 +5,16 @@
       <div> New Order </div>
     </div>
   </div>
-  <div *ngIf="!selectedOrder">
-    <div class="order">
-      <div>
-        <h4>שם לקוח</h4>
-      </div>
-      <div>
-        <h4>סטאטוס הזמנה</h4>
-      </div>
-      <div>
-        <h4>מחיר</h4>
-      </div>
+
+  <div>
+    <div class="column-header">
+
     </div>
-    <hr>
+  </div>
+  <div>
     <app-order *ngFor="let order of orders"
                [currOrder]="order"
-               (click)="selectOrder(order)">
+               (click)="onSelectedOrder(order)">
     </app-order>
-  </div>
-  <div *ngIf="selectedOrder">
-    <app-order-details [selectedOrder]="selectedOrder">
-    </app-order-details>
   </div>
 </div>

@@ -14,4 +14,9 @@ export class OredersService {
   getOrders(): Observable<Order[]> {
     return (this.http.get<Order[]>(this.ordersURI));
   }
+
+  deleteOrder(order: Order): Observable<any> {
+    // return this.http.post(this.ordersURI + '/delete', order).subscribe((res) => console.log(res));
+    return null;
+  }
 }

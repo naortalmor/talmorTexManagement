@@ -1,38 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
 body {
   direction: rtl;
   text-align: right;
-}
-app-orders > app-order:first-child{
-  cursor: pointer;
-  background-color: #ede7ef;
-  padding: 7px;
-  border-radius: 13px;
-}
-.container {
-  display: flex;
-  padding: 25px;
-}
-.nav-items {
-  display: flex;
-  margin-right: 50px;
-}
-.nav-item {
-  margin: 0px 10px;
-  cursor: pointer;
-}
-.order {
-  display: flex;
-  justify-content: space-around;
-  padding: 10px;
-  width: 55%;
-  margin: 0 auto;
-}
-.order > div > h4 {
-  align-content: center;
-}
-hr {
-  width: 50%;
 }

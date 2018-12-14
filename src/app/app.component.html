@@ -1,7 +1,13 @@
-<app-navigation (viewEventEmitter)="onViewChanges($event)"></app-navigation>
+<app-navigation
+  [selectedView]="view"
+  (viewEventEmitter)="onViewChanges($event)" class="navigation">
+</app-navigation>
 <div *ngIf="view=='orders'">
-  <app-orders></app-orders>
+  <app-orders [orders]="allOrders" (orderSelected)="onOrderSelected($event)"></app-orders>
 </div>
 <div *ngIf="view=='stats'">
   <app-statistics></app-statistics>
+</div>
+<div *ngIf="selectedOrder">
+  <app-order-details [selectedOrder]="selectedOrder"></app-order-details>
 </div>

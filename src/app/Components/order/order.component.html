@@ -1,12 +1,16 @@
 <div class="order">
-  <div>
+  <div class="order-item">
     <h4>{{currOrder.customerName}}</h4>
   </div>
-  <div>
+  <div class="order-item">
     <h4>{{currOrder.status}}</h4>
   </div>
-  <div>
+  <div class="order-item">
     <h4>{{currOrder.cost}}</h4>
   </div>
+  <fa name="info" size="lg"></fa>
+  <fa name="edit" size="lg"></fa>
+  <!--<fa name="trash" size="lg" (click)="onDelete()"></fa>-->
+  <fa name="trash" size="lg"></fa>
 </div>
 

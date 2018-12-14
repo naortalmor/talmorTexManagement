@@ -1,8 +1,8 @@
-<div class="container">
-  <div>TalmorTex</div>
+<div class="nav-container">
+  <div class="icon-text">TalmorTex</div>
   <div class="nav-items">
-    <div class="nav-item" (click)="onViewItem('orders')">הזמנות</div>
+    <div class="nav-item" (click)="onViewItem('orders')" [class.selected]="selectedView == 'orders'">הזמנות</div>
     <hr>
-    <div class="nav-item" (click)="onViewItem('stats')">סטטיסטיקה</div>
+    <div class="nav-item" (click)="onViewItem('stats')" [class.selected]="selectedView == 'stats'">סטטיסטיקה</div>
   </div>
 </div>
