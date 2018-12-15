@@ -8,6 +8,7 @@ export class Order {
   height: Number;
   width: Number;
   cost: Number;
-  status: Statuses;
+  status: Number;
+  description: String;
 }
 

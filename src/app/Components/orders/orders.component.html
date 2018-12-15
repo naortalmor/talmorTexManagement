@@ -11,10 +11,27 @@
 
     </div>
   </div>
-  <div>
-    <app-order *ngFor="let order of orders"
-               [currOrder]="order"
-               (click)="onSelectedOrder(order)">
-    </app-order>
+  <div class="all-orders-container">
+    <div class="single-order">
+      <div class="order-header">הזמנות חדשות</div>
+      <app-order *ngFor="let order of newOrders"
+                 [currOrder]="order"
+                 (click)="onSelectedOrder(order)">
+      </app-order>
+    </div>
+    <div class="single-order">
+      <div class="order-header">הזמנות שבתהליך</div>
+      <app-order *ngFor="let order of inProgressOrders"
+                 [currOrder]="order"
+                 (click)="onSelectedOrder(order)">
+      </app-order>
+    </div>
+    <div class="single-order">
+      <div class="order-header">הזמנות שסוימו</div>
+      <app-order *ngFor="let order of doneOrders"
+                 [currOrder]="order"
+                 (click)="onSelectedOrder(order)">
+      </app-order>
+    </div>
   </div>
 </div>

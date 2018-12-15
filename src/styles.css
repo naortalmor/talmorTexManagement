@@ -3,3 +3,7 @@ body {
   direction: rtl;
   text-align: right;
 }
+
+:root {
+  --purple: #1c0a76cf
+}

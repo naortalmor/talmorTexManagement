@@ -15,6 +15,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {OrderDetailsComponent} from './Components/order-details/order-details.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {TabsComponent} from './Components/tabs/tabs.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     NavigationComponent,
     NewOrderComponent,
     OrderComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    TabsComponent
   ],
   imports: [
     BrowserModule,

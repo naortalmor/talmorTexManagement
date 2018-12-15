@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {OredersService} from './Services/Orders/oreders.service';
 import {Order} from './Interfaces/order';
+import {Statuses} from './Interfaces/Statuses';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +11,14 @@ import {Order} from './Interfaces/order';
 })
 export class AppComponent {
   view = 'orders';
-  allOrders: Order[];
+  allOrders: Observable<Order[]>;
   selectedOrder: Order;
+  newOrders: Order[];
+  inProgOrders: Order[];
+  doneOrders: Order[];
 
   constructor(private orderService: OredersService) {
-    this.orderService.getOrders().subscribe((orders) => {
-      this.allOrders = orders;
-    });
+    this.allOrders = this.orderService.getOrders();
   }
 
   onViewChanges(viewToDisplay: string) {

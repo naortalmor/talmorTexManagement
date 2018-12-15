@@ -19,7 +19,7 @@
   margin: 3px 5px 0 15px;
   font-size: 15px;
   font-weight: 500;
-  color: #1c0a76cf;
+  color: var(--purple)
 }
 
 .nav-item:hover {

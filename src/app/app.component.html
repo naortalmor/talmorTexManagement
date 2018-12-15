@@ -2,8 +2,9 @@
   [selectedView]="view"
   (viewEventEmitter)="onViewChanges($event)" class="navigation">
 </app-navigation>
+<app-tabs></app-tabs>
 <div *ngIf="view=='orders'">
-  <app-orders [orders]="allOrders" (orderSelected)="onOrderSelected($event)"></app-orders>
+  <app-orders [allOrders]="allOrders | async" (orderSelected)="onOrderSelected($event)"></app-orders>
 </div>
 <div *ngIf="view=='stats'">
   <app-statistics></app-statistics>

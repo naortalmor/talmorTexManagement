@@ -9,15 +9,17 @@ import {Statuses} from '../../Interfaces/Statuses';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnChanges {
-  @Input() orders;
+  @Input() newOrders;
+  @Input() inProgressOrders;
+  @Input() doneOrders;
+  @Input() allOrders;
   @Output() orderSelected = new EventEmitter<Order>();
-  newOrders: Order[] = [];
-  inProgressOrders: Order[] = [];
-  doneOrders: Order[] = []
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['orders']) {
-      this.newOrders = (changes['orders'].currentValue as Order[]).filter(curr => curr.status === Statuses.New);
+    if (changes['allOrders'] && changes['allOrders'].currentValue) {
+      this.newOrders = this.allOrders.filter(curr => curr.status == Statuses.New);
+      this.doneOrders = this.allOrders.filter(curr => curr.status == Statuses.Done);
+      this.inProgressOrders = this.allOrders.filter(curr => curr.status != Statuses.New && curr.status != Statuses.Done);
     }
   }
 

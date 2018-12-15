@@ -1,0 +1,17 @@
+.all-orders-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.single-order {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.order-header {
+  font-size: larger;
+  font-style: italic;
+  color: var(--purple)
+}
