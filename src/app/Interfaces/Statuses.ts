@@ -1,7 +1,15 @@
 export enum Statuses {
-  New = 1,
+  New,
   Cut,
   Matpera,
   Ready,
   Done,
+}
+
+export enum StatusMapper {
+  'חדש',
+  'חיתוך',
+  'במתפרה',
+  'מוכן',
+  'הסתיים'
 }

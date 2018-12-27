@@ -1,3 +1,12 @@
-<div class="ordersModal">
-  {{selectedOrder.customerName}}
+<div class="order-details" *ngFor="let currValue of orderKeys">
+  <div class="key-container">
+    <div class="key-header">{{ordersDisplayValues[currValue]}}:</div>
+    <div class="key-data" *ngIf="currValue == 'status'">
+      {{statusMapper[selectedOrder[currValue]] }}
+    </div>
+    <div class="key-data" *ngIf="currValue == 'orderDate'">
+      {{selectedOrder[currValue] | date: "dd/MM/yyyy"}}
+    </div>
+    <div class="key-data" *ngIf="currValue !== 'status' && currValue !== 'orderDate'"> {{selectedOrder[currValue] }} </div>
+  </div>
 </div>

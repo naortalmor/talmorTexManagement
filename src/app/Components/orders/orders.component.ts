@@ -8,22 +8,12 @@ import {Statuses} from '../../Interfaces/Statuses';
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']
 })
-export class OrdersComponent implements OnChanges {
-  @Input() newOrders;
-  @Input() inProgressOrders;
-  @Input() doneOrders;
-  @Input() allOrders;
-  @Output() orderSelected = new EventEmitter<Order>();
+export class OrdersComponent {
+  @Input() orders;
+  @Input() selectedTab;
+  @Output() onTabChanged = new EventEmitter<string>();
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['allOrders'] && changes['allOrders'].currentValue) {
-      this.newOrders = this.allOrders.filter(curr => curr.status == Statuses.New);
-      this.doneOrders = this.allOrders.filter(curr => curr.status == Statuses.Done);
-      this.inProgressOrders = this.allOrders.filter(curr => curr.status != Statuses.New && curr.status != Statuses.Done);
-    }
-  }
-
-  onSelectedOrder(order: Order) {
-    this.orderSelected.emit(order);
+  tabChanged(tab: string) {
+    this.onTabChanged.emit(tab);
   }
 }

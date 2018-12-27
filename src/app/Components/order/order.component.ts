@@ -10,6 +10,11 @@ import swal from 'sweetalert2';
 export class OrderComponent {
   @Input() currOrder: Order;
   @Output() deleteOrder = new EventEmitter<Order>();
+  displayContent = false;
+
+  collapse() {
+    this.displayContent = !this.displayContent;
+  }
 
   onDelete() {
     swal({

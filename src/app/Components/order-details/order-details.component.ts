@@ -1,5 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, Inject, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Order} from '../../Interfaces/order';
+import {OrdersKeyMapper} from '../../Interfaces/keys-mapper';
+import {StatusMapper} from '../../Interfaces/Statuses';
 
 @Component({
   selector: 'app-order-details',
@@ -7,6 +9,16 @@ import {Order} from '../../Interfaces/order';
   styleUrls: ['./order-details.component.css']
 })
 
-export class OrderDetailsComponent {
+@Inject({OrdersKeyMapper, StatusMapper})
+export class OrderDetailsComponent implements OnInit {
   @Input() selectedOrder: Order;
+  ordersDisplayValues;
+  orderKeys: string[];
+  statusMapper;
+
+  ngOnInit() {
+    this.ordersDisplayValues = OrdersKeyMapper;
+    this.orderKeys = Object.keys(OrdersKeyMapper);
+    this.statusMapper = StatusMapper;
+  }
 }

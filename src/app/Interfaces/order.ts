@@ -1,5 +1,3 @@
-import {Statuses} from './Statuses';
-
 export class Order {
   orderDate: Date;
   id: number;

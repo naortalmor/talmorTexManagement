@@ -1,0 +1,16 @@
+.order-details {
+  display: flex;
+  flex-direction: column;
+}
+.key-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.key-header {
+  margin: 2px 0 2px 15px;
+  font-weight: 700;
+  font-style: italic;
+  color: #706c73;
+}

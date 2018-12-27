@@ -1,37 +1,8 @@
-<div>
-  <div>
-    <h1>All Orders</h1>
-    <div>
-      <div> New Order </div>
-    </div>
-  </div>
-
-  <div>
-    <div class="column-header">
-
-    </div>
-  </div>
-  <div class="all-orders-container">
-    <div class="single-order">
-      <div class="order-header">הזמנות חדשות</div>
-      <app-order *ngFor="let order of newOrders"
-                 [currOrder]="order"
-                 (click)="onSelectedOrder(order)">
-      </app-order>
-    </div>
-    <div class="single-order">
-      <div class="order-header">הזמנות שבתהליך</div>
-      <app-order *ngFor="let order of inProgressOrders"
-                 [currOrder]="order"
-                 (click)="onSelectedOrder(order)">
-      </app-order>
-    </div>
-    <div class="single-order">
-      <div class="order-header">הזמנות שסוימו</div>
-      <app-order *ngFor="let order of doneOrders"
-                 [currOrder]="order"
-                 (click)="onSelectedOrder(order)">
-      </app-order>
-    </div>
+<app-tabs [selectedTab]="selectedTab" (selectedTabChanged)="tabChanged($event)"></app-tabs>
+<div class="all-orders-container">
+  <div class="single-order">
+    <app-order *ngFor="let order of orders"
+               [currOrder]="order">
+    </app-order>
   </div>
 </div>

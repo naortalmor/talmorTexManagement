@@ -1,15 +1,16 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-tabs',
-  templateUrl: './tabs.component..html',
+  templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.css']
 })
 
 export class TabsComponent {
-  selectedTab: String;
+  @Input() selectedTab;
+  @Output() selectedTabChanged = new EventEmitter<String>();
 
   onTabSelected(tab: String) {
-    this.selectedTab = tab;
+    this.selectedTabChanged.emit(tab);
   }
 }

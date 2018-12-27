@@ -1,0 +1,21 @@
+.tabs {
+  display: flex;
+}
+
+.tab {
+  border-bottom: 1px solid var(--purple);
+  border-right: 1px solid var(--purple);
+  border-left: 1px solid var(--purple);
+  padding: 5px;
+  margin: 5px;
+  border-radius: 0px 0px 5px 5px;
+  cursor: pointer;
+}
+
+.tab:hover {
+  background-color: #80808030;
+}
+
+.selected {
+  background-color: #cfa9df30;
+}

@@ -1,1 +1,4 @@
-<div class="order">{{currOrder.description}}</div>
+<div class="order" (click)="collapse()">{{currOrder.description}}</div>
+<div *ngIf="displayContent">
+  <app-order-details [selectedOrder]="currOrder"></app-order-details>
+</div>
