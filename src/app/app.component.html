@@ -8,6 +8,6 @@
 <div *ngIf="view=='stats'">
   <app-statistics></app-statistics>
 </div>
-<div *ngIf="selectedOrder">
-  <app-order-details [selectedOrder]="selectedOrder"></app-order-details>
+<div *ngIf="view=='newOrder'">
+  <app-new-order (createOrder)="createNewOrder($event)"></app-new-order>
 </div>

@@ -12,9 +12,9 @@ import {Observable} from 'rxjs/Observable';
 export class AppComponent {
   view = 'orders';
   selectedTab = 'all';
-  selectedOrder: Order;
   allOrders: Order[];
   orders: Order[];
+  displayNewOrderModal = false;
 
   constructor(private orderService: OredersService) {
     this.orderService.getOrders().subscribe((orders) => {
@@ -34,14 +34,18 @@ export class AppComponent {
         this.orders = this.allOrders;
         break;
       case('done'):
-        this.orders = this.allOrders.filter(curr => curr.status == Statuses.Done);
+        this.orders = this.allOrders.filter(curr => curr.status === Statuses.Done);
         break;
       case ('new'):
-        this.orders = this.allOrders.filter(curr => curr.status == Statuses.New);;
+        this.orders = this.allOrders.filter(curr => curr.status === Statuses.New);
         break;
       case ('inProgress'):
-        this.orders = this.allOrders.filter(curr => curr.status != Statuses.New && curr.status != Statuses.Done);
+        this.orders = this.allOrders.filter(curr => curr.status !== Statuses.New && curr.status !== Statuses.Done);
         break;
     }
+  }
+
+  createNewOrder(newOrder: Order) {
+    this.orderService.newOrder(newOrder).subscribe(res => console.log(res));
   }
 }

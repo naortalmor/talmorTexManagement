@@ -8,5 +8,7 @@ export class Order {
   cost: Number;
   status: Number;
   description: String;
+  phoneNumber: String;
+  email: String;
 }
 
