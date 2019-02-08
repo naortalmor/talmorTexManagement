@@ -1,11 +1,25 @@
 .order {
-  cursor: pointer;
-  font-weight: 600;
-  border-bottom: 1px solid var(--purple);
-  margin: 5px 0;
+  width: 100%;
+  text-align: center;
 }
-.order:hover {
-  background-color: #ced4da8c;
-  border: 1px solid #1e7e34;
-  padding: 5px;
+
+.status-badge {
+  border: 1px #30c0ff80 solid;
+  padding: 1px 5px;
+  border-radius: 11px;
+  font-size: smaller;
+  font-weight: 400;
+  color: white;
+}
+
+.new-badge {
+  background-color: #28a75691;
+}
+
+.in-progress-badge {
+  background-color: #ffc107;
+}
+
+.done-badge {
+  background-color: #bd2130b5;
 }

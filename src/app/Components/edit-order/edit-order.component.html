@@ -3,18 +3,15 @@
     <div class="key-container">
       <div class="key-header">{{ordersDisplayValues[currValue]}}:</div>
       <div class="key-data" *ngIf="currValue == 'status'">
-        {{statusMapper[selectedOrder[currValue]] }}
+        {{statusMapper[orderToEdit[currValue]] }}
       </div>
       <div class="key-data" *ngIf="currValue.includes('Date')">
-        {{selectedOrder[currValue] | date: "dd/MM/yyyy"}}
+        {{orderToEdit[currValue] | date: "dd/MM/yyyy"}}
       </div>
-      <div class="key-data" *ngIf="currValue !== 'status' && currValue !== 'orderDate'"> {{selectedOrder[currValue] }} </div>
+      <div class="key-data" *ngIf="currValue !== 'status' && currValue !== 'orderDate'"> {{orderToEdit[currValue] }} </div>
     </div>
   </div>
-  <div (click)="onEdit()">
-    ערוך
-  </div>
-  <div (click)="onDelete()">
-    מחק הזמנה
+  <div (click)="onSave()">
+    שמור
   </div>
 </div>

@@ -1,4 +1,4 @@
-import {Component, Inject, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Order} from '../../Interfaces/order';
 import {OrdersKeyMapper} from '../../Interfaces/keys-mapper';
 import {StatusMapper} from '../../Interfaces/Statuses';
@@ -12,6 +12,8 @@ import {StatusMapper} from '../../Interfaces/Statuses';
 @Inject({OrdersKeyMapper, StatusMapper})
 export class OrderDetailsComponent implements OnInit {
   @Input() selectedOrder: Order;
+  @Output() editOrderEmitter = new EventEmitter<Order>();
+  @Output() deleteOrderEmitter = new EventEmitter<Order>();
   ordersDisplayValues;
   orderKeys: string[];
   statusMapper;
@@ -20,5 +22,13 @@ export class OrderDetailsComponent implements OnInit {
     this.ordersDisplayValues = OrdersKeyMapper;
     this.orderKeys = Object.keys(OrdersKeyMapper);
     this.statusMapper = StatusMapper;
+  }
+
+  onEdit() {
+    this.editOrderEmitter.emit(this.selectedOrder);
+  }
+
+  onDelete() {
+    this.deleteOrderEmitter.emit(this.selectedOrder);
   }
 }

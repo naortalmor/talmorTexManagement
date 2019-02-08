@@ -1,13 +1,26 @@
-<app-navigation
-  [selectedView]="view"
-  (viewEventEmitter)="onViewChanges($event)" class="navigation">
-</app-navigation>
-<div *ngIf="view=='orders'">
-  <app-orders [orders]="orders" [selectedTab]="selectedTab" (onTabChanged)="onChangeTab($event)"></app-orders>
-</div>
-<div *ngIf="view=='stats'">
-  <app-statistics></app-statistics>
-</div>
-<div *ngIf="view=='newOrder'">
-  <app-new-order (createOrder)="createNewOrder($event)"></app-new-order>
+<div class="row main">
+  <app-navigation
+    [selectedView]="view"
+    (viewEventEmitter)="onViewChanges($event)" class="navigation">
+  </app-navigation>
+  <div class="data-container">
+    <div *ngIf="view=='orders'">
+      <app-orders [orders]="orders"
+                  [tabsInfo]="tabsInfo"
+                  [selectedTab]="selectedTab"
+                  (tabChangedEmitter)="onChangeTab($event)"
+                  (editOrder)="editOrder($event)"
+                  (deleteOrder)="deleteOrder($event)">
+      </app-orders>
+    </div>
+    <div *ngIf="view=='stats'">
+      <app-statistics></app-statistics>
+    </div>
+    <div *ngIf="view=='newOrder'">
+      <app-new-order (createOrder)="createNewOrder($event)" [isEditMode]="false"></app-new-order>
+    </div>
+    <div *ngIf="view=='edit'">
+      <app-new-order [orderToEdit]="orderToEdit" [isEditMode]="true" (updateOrder)="updateOrderDetails($event)"></app-new-order>
+    </div>
+  </div>
 </div>

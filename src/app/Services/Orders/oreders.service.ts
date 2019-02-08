@@ -19,8 +19,13 @@ export class OredersService {
     return this.http.post<Order>(this.ordersURI, order);
   }
 
+  updateOrder(updatedOrder: Order): Observable<Order> {
+    const updateURI = this.ordersURI + '/update';
+    return this.http.post<Order>(updateURI, updatedOrder);
+  }
+
   deleteOrder(order: Order): Observable<any> {
-    // return this.http.post(this.ordersURI + '/delete', order).subscribe((res) => console.log(res));
-    return null;
+    const updateURI = this.ordersURI + '/delete';
+    return this.http.post<Order>(updateURI, order);
   }
 }

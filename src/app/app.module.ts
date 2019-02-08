@@ -16,6 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {OrderDetailsComponent} from './Components/order-details/order-details.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {TabsComponent} from './Components/tabs/tabs.component';
+import {EditOrderComponent} from './Components/edit-order/edit-order.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {TabsComponent} from './Components/tabs/tabs.component';
     NewOrderComponent,
     OrderComponent,
     OrderDetailsComponent,
-    TabsComponent
+    TabsComponent,
+    EditOrderComponent
   ],
   imports: [
     BrowserModule,

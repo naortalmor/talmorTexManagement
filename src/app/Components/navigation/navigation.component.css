@@ -1,25 +1,27 @@
 .nav-container {
+  background-color: rgba(168, 166, 200, 0.61);
   display: flex;
-  flex-direction: row;
-  margin: 20px 30px 5px 0;
+  flex-direction: column;
   padding: 5px;
+  height: 100%;
+  text-align: center;
 }
 
 .nav-items {
-  display: flex;
-  flex-direction: row;
+  /*display: flex;*/
+  /*flex-direction: row;*/
 }
 
 .icon-text {
   font-weight: bold;
-  margin-left: 20px;
+  margin-bottom: 100px;
 }
 
 .nav-item {
   margin: 3px 5px 0 15px;
   font-size: 15px;
   font-weight: 500;
-  color: var(--purple)
+  color: white;
 }
 
 .nav-item:hover {

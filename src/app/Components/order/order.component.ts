@@ -1,32 +1,47 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, Inject} from '@angular/core';
 import {Order} from '../../Interfaces/order';
 import swal from 'sweetalert2';
+import {StatusMapper} from '../../Interfaces/Statuses';
 
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.css']
 })
-export class OrderComponent {
+
+@Inject({StatusMapper})
+export class OrderComponent implements OnInit {
   @Input() currOrder: Order;
   @Output() deleteOrder = new EventEmitter<Order>();
+  @Output() editOrder = new EventEmitter<Order>();
   displayContent = false;
+  editMode = false;
+  statusMapper;
+
+  ngOnInit() {
+    this.statusMapper = StatusMapper;
+  }
 
   collapse() {
     this.displayContent = !this.displayContent;
   }
 
-  onDelete() {
+  onEditOrder(order: Order) {
+    this.editOrder.emit(order);
+  }
+
+  onDelete(order: Order) {
     swal({
-      title: 'Are you sure?',
-      text: 'Are you sure that you want to delete this photo?',
+      title: 'אתה בטוח?',
+      text: 'האם אתה בטוח במחיקת ההזמנה?',
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'כן!',
+      cancelButtonText: 'לא..',
       confirmButtonColor: '#ec6c62'
     }).then((result) => {
       if (result.value) {
-        this.deleteOrder.emit(this.currOrder);
+        this.deleteOrder.emit(order);
       }
     });
   }

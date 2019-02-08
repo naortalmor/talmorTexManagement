@@ -9,8 +9,48 @@
     </div>
 
     <div class="form-group">
-      <label for="cost">מחיר</label>
-      <input type="text" class="form-control" id="cost" name="cost" required [(ngModel)]="newOrder.cost">
+      <label for="cloth">סוג בד</label>
+      <input type="text" class="form-control" id="cloth" name="cloth" required [(ngModel)]="newOrder.cloth">
+    </div>
+
+    <div class="form-group">
+      <label for="stitching">סוג תפירה</label>
+      <select name="stitching" id="stitching" [(ngModel)]="newOrder.stitching" required>
+        <option>ידני</option>
+        <option>אוטומטי</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="cost">מחיר הזמנה</label>
+      <input type="number" class="form-control" id="cost" name="cost" required [(ngModel)]="newOrder.cost">
+    </div>
+
+    <div class="form-group">
+      <label for="installation-cost">מחיר התקנה</label>
+      <input type="number" class="form-control" id="installation-cost" name="installation-cost" required [(ngModel)]="newOrder.installationCost">
+    </div>
+
+    <div class="form-group">
+      <label for="payed">סכום ששולם</label>
+      <input type="number" class="form-control" id="payed" name="payed" required [(ngModel)]="newOrder.payed">
+    </div>
+
+    <div class="form-group">
+      <label for="cost">יתרה לטלמור</label>
+      <input type="number" class="form-control" id="talmor-balance" name="talmor-balance" required [(ngModel)]="newOrder.talmorBalance">
+    </div>
+
+    <div class="form-group">
+      <label for="installation-balance">יתרה למתקין</label>
+      <input type="number" class="form-control" id="installation-balance" name="installation-balance" required [(ngModel)]="newOrder.installationBalance">
+    </div>
+
+    <div *ngIf="isEditMode" class="form-group">
+      <label for="status">סטאטוס הזמנה</label>
+      <select name="status" id="status" [(ngModel)]="statusSelected" required>
+        <option *ngFor="let status of statusesKeys">{{status}}</option>
+      </select>
     </div>
 
     <div class="form-group">
@@ -31,6 +71,21 @@
     <div class="form-group">
       <label for="phone">מספר טלפון</label>
       <input type="text" class="form-control" id="phone" name="phone" required [(ngModel)]="newOrder.phoneNumber">
+    </div>
+
+    <div class="form-group">
+      <label for="city">עיר</label>
+      <input type="text" class="form-control" id="city" name="city" required [(ngModel)]="newOrder.city">
+    </div>
+
+    <div class="form-group">
+      <label for="street">רחוב</label>
+      <input type="text" class="form-control" id="street" name="street" required [(ngModel)]="newOrder.street">
+    </div>
+
+    <div class="form-group">
+      <label for="homeNumber">מספר בית</label>
+      <input type="text" class="form-control" id="homeNumber" name="homeNumber" required [(ngModel)]="newOrder.homeNumber">
     </div>
 
     <div class="form-group">

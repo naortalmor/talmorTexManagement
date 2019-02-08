@@ -5,5 +5,10 @@ export enum OrdersKeyMapper {
   'width' = 'רוחב',
   'cost' = 'מחיר',
   'status' = 'סטאטוס',
-  'orderDate' = 'תאריך הזמנה'
+  'orderDate' = 'תאריך הזמנה',
+  'cloth' = 'סוג בד',
+  'stitching' = 'סוג תפירה',
+  'installationCost' = 'מחיר התקנה',
+  'payed' = 'שולם',
+  'talmorBalance' = 'יתרה לטלמור'
 }

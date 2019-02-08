@@ -1,17 +1,20 @@
 .all-orders-container {
   display: flex;
-  flex-direction: row;
-}
-
-.single-order {
-  display: flex;
   flex-direction: column;
-  width: 100%;
-  align-items: center;
+  margin: 35px 50px 0 50px;
+  text-align: center;
 }
 
 .order-header {
   font-size: larger;
   font-style: italic;
   color: var(--purple)
+}
+
+.table {
+  font-weight: bold;
+}
+
+.single-order {
+  margin-bottom: 5px;
 }

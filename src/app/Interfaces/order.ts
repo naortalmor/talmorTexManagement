@@ -10,5 +10,14 @@ export class Order {
   description: String;
   phoneNumber: String;
   email: String;
+  cloth: String;
+  stitching: String;
+  installationCost: Number;
+  payed: Number;
+  talmorBalance: Number;
+  installationBalance: Number;
+  city: String;
+  street: String;
+  homeNumber: String;
 }
 

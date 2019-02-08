@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange,
 import {Order} from '../../Interfaces/order';
 import {OredersService} from '../../Services/Orders/oreders.service';
 import {Statuses} from '../../Interfaces/Statuses';
+import {TabsInfo} from '../../Interfaces/tabs-info';
 
 @Component({
   selector: 'app-orders',
@@ -11,9 +12,20 @@ import {Statuses} from '../../Interfaces/Statuses';
 export class OrdersComponent {
   @Input() orders;
   @Input() selectedTab;
-  @Output() onTabChanged = new EventEmitter<string>();
+  @Input() tabsInfo: TabsInfo;
+  @Output() tabChangedEmitter = new EventEmitter<string>();
+  @Output() editOrder = new EventEmitter<Order>();
+  @Output() deleteOrder = new EventEmitter<Order>();
 
   tabChanged(tab: string) {
-    this.onTabChanged.emit(tab);
+    this.tabChangedEmitter.emit(tab);
+  }
+
+  onEditOrder(order: Order) {
+    this.editOrder.emit(order);
+  }
+
+  onDeleteOrder(order: Order) {
+    this.deleteOrder.emit(order);
   }
 }

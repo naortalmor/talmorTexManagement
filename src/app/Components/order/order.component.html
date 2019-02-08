@@ -1,4 +1,32 @@
-<div class="order" (click)="collapse()">{{currOrder.description}}</div>
-<div *ngIf="displayContent">
-  <app-order-details [selectedOrder]="currOrder"></app-order-details>
+<!--<div class="order" (click)="collapse()">{{currOrder.description}}</div>-->
+<!--<div *ngIf="displayContent">-->
+  <!--<app-order-details [selectedOrder]="currOrder"-->
+                     <!--(editOrderEmitter)="onEditOrder($event)"-->
+                     <!--(deleteOrderEmitter)="onDelete($event)">-->
+  <!--</app-order-details>-->
+<!--</div>-->
+<!--<div *ngIf="editMode">-->
+  <!--<app-edit-order [orderToEdit]="currOrder"></app-edit-order>-->
+<!--</div>-->
+<div class="row order">
+  <div class="table-cell">
+    {{currOrder.customerName}}
+  </div>
+  <div class="table-cell">
+    {{currOrder.phoneNumber}}
+  </div>
+  <div class="table-cell">
+    {{currOrder.cloth}}
+  </div>
+  <div class="table-cell">
+    {{currOrder.cost}}
+  </div>
+  <div class="table-cell">
+    <span class="status-badge"
+          [class.new-badge]="currOrder.status == 0"
+          [class.in-progress-badge]="currOrder.status == 1 || currOrder.status == 2 || currOrder.status == 3"
+          [class.done-badge]="currOrder.status == 4">
+      {{statusMapper[currOrder.status]}}
+    </span>
+  </div>
 </div>

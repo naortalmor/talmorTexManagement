@@ -1,9 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+html, body, app-root, .row {
+  height: 100%;
+}
+
 body {
   direction: rtl;
   text-align: right;
 }
 
 :root {
-  --purple: #1c0a76cf
+  --purple: #1c0a76cf;
+  --blue: #6a94b973;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.main {
+  background-color: rgba(229, 211, 229, 0.37);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.data-container {
+  margin: 50px;
+  flex: 10;
+}
+
+app-navigation {
+  flex: 2;
+}
+
+.table-cell {
+  flex: 1;
 }
