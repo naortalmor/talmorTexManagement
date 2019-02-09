@@ -10,7 +10,9 @@
                   [selectedTab]="selectedTab"
                   (tabChangedEmitter)="onChangeTab($event)"
                   (editOrder)="editOrder($event)"
-                  (deleteOrder)="deleteOrder($event)">
+                  (deleteOrder)="deleteOrder($event)"
+                  (newOrderEmitter)="onViewChanges('newOrder')"
+                  (displayOrderDetails)="displayOrderDetails($event)">
       </app-orders>
     </div>
     <div *ngIf="view=='stats'">
@@ -22,5 +24,12 @@
     <div *ngIf="view=='edit'">
       <app-new-order [orderToEdit]="orderToEdit" [isEditMode]="true" (updateOrder)="updateOrderDetails($event)"></app-new-order>
     </div>
+    <div *ngIf="ordersToDisplay.length">
+      <div *ngFor="let order of ordersToDisplay">
+        <app-order-details [selectedOrder]="order" class="card">
+        </app-order-details>
+      </div>
+    </div>
+
   </div>
 </div>

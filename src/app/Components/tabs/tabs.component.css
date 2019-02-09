@@ -23,3 +23,16 @@
 .selected {
   border-bottom: 2px solid #1e7e34;
 }
+
+.new-order-button {
+  align-self: center;
+  margin: 0 20px;
+}
+
+.new-button {
+  border: 2px #007bff solid;
+  border-radius: 20px;
+  padding: 8px 25px;
+  font-weight: 600;
+  cursor: pointer;
+}

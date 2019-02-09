@@ -1,7 +1,8 @@
 <div class="column">
   <app-tabs [selectedTab]="selectedTab"
             [tabsInfo]="tabsInfo"
-            (selectedTabChanged)="tabChanged($event)"></app-tabs>
+            (selectedTabChanged)="tabChanged($event)"
+            (newOrderEmitter)="createNewOrder()"></app-tabs>
   <div class="all-orders-container">
     <div class="table row">
       <div class="table-cell">
@@ -24,7 +25,8 @@
                class="single-order"
                [currOrder]="order"
                (editOrder)="onEditOrder($event)"
-               (deleteOrder)="onDeleteOrder($event)">
+               (deleteOrder)="onDeleteOrder($event)"
+               (orderDetailsEmitter)="displayOrderCard(order)">
     </app-order>
   </div>
 </div>

@@ -1,14 +1,4 @@
-<!--<div class="order" (click)="collapse()">{{currOrder.description}}</div>-->
-<!--<div *ngIf="displayContent">-->
-  <!--<app-order-details [selectedOrder]="currOrder"-->
-                     <!--(editOrderEmitter)="onEditOrder($event)"-->
-                     <!--(deleteOrderEmitter)="onDelete($event)">-->
-  <!--</app-order-details>-->
-<!--</div>-->
-<!--<div *ngIf="editMode">-->
-  <!--<app-edit-order [orderToEdit]="currOrder"></app-edit-order>-->
-<!--</div>-->
-<div class="row order">
+<div class="row order" (click)="onOrderClick()">
   <div class="table-cell">
     {{currOrder.customerName}}
   </div>

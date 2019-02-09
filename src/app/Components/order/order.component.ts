@@ -14,6 +14,7 @@ export class OrderComponent implements OnInit {
   @Input() currOrder: Order;
   @Output() deleteOrder = new EventEmitter<Order>();
   @Output() editOrder = new EventEmitter<Order>();
+  @Output() orderDetailsEmitter = new EventEmitter<void>();
   displayContent = false;
   editMode = false;
   statusMapper;
@@ -44,5 +45,9 @@ export class OrderComponent implements OnInit {
         this.deleteOrder.emit(order);
       }
     });
+  }
+
+  onOrderClick() {
+    this.orderDetailsEmitter.emit();
   }
 }

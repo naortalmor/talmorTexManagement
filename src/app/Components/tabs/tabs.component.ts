@@ -10,8 +10,13 @@ export class TabsComponent {
   @Input() selectedTab;
   @Input() tabsInfo;
   @Output() selectedTabChanged = new EventEmitter<String>();
+  @Output() newOrderEmitter = new EventEmitter<void>();
 
   onTabSelected(tab: String) {
     this.selectedTabChanged.emit(tab);
+  }
+
+  onNewOrder() {
+    this.newOrderEmitter.emit();
   }
 }

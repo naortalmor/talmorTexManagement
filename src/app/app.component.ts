@@ -17,6 +17,7 @@ export class AppComponent {
   orders: Order[];
   orderToEdit: Order;
   tabsInfo: TabsInfo = {};
+  ordersToDisplay: Order[] = [];
 
   constructor(private orderService: OredersService) {
     this.orderService.getOrders().subscribe((orders) => {
@@ -114,5 +115,9 @@ export class AppComponent {
     }
     this.view = 'orders';
     this.onChangeTab('all');
+  }
+
+  displayOrderDetails(order: Order) {
+    this.ordersToDisplay.push(order);
   }
 }

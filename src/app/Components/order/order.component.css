@@ -1,6 +1,7 @@
 .order {
   width: 100%;
   text-align: center;
+  cursor: pointer;
 }
 
 .status-badge {
