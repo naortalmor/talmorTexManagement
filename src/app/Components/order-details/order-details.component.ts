@@ -2,7 +2,6 @@ import {Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, Simpl
 import {Order} from '../../Interfaces/order';
 import {OrdersKeyMapper} from '../../Interfaces/keys-mapper';
 import {StatusMapper} from '../../Interfaces/Statuses';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-order-details',
@@ -18,13 +17,11 @@ export class OrderDetailsComponent implements OnInit {
   ordersDisplayValues;
   orderKeys: string[];
   statusMapper;
-  icon;
 
   ngOnInit() {
     this.ordersDisplayValues = OrdersKeyMapper;
     this.orderKeys = Object.keys(OrdersKeyMapper);
     this.statusMapper = StatusMapper;
-    this.icon = faCoffee;
   }
 
   onEdit() {
