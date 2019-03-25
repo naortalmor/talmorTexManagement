@@ -17,7 +17,7 @@ export class OrdersComponent {
   @Output() editOrder = new EventEmitter<Order>();
   @Output() deleteOrder = new EventEmitter<Order>();
   @Output() newOrderEmitter = new EventEmitter<void>();
-  @Output() displayOrderDetails = new EventEmitter<Order>();
+  ordersToDisplay: Order[] = [];
 
   tabChanged(tab: string) {
     this.tabChangedEmitter.emit(tab);
@@ -36,6 +36,6 @@ export class OrdersComponent {
   }
 
   displayOrderCard(order: Order) {
-    this.displayOrderDetails.emit(order);
+    this.ordersToDisplay.push(order);
   }
 }

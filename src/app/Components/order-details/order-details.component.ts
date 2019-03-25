@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
 import {Order} from '../../Interfaces/order';
 import {OrdersKeyMapper} from '../../Interfaces/keys-mapper';
 import {StatusMapper} from '../../Interfaces/Statuses';

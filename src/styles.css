@@ -27,12 +27,7 @@ body {
 }
 
 .data-container {
-  margin: 50px;
-  flex: 10;
-}
 
-app-navigation {
-  flex: 2;
 }
 
 .table-cell {
@@ -40,15 +35,14 @@ app-navigation {
 }
 
 .card {
-  display: block;
-  position: absolute;
-  z-index: 1;
-  right: 50%;
-  top: 25%;
-  background-color: #d9cee3;
-  height: 450px;
-  padding: 20px;
-  width: 300px;
-  border: 1px solid black;
-  border-radius: 15px;
+  /*display: block;*/
+  /*position: absolute;*/
+  /*z-index: 1;*/
+  /*left: 25px;*/
+  /*top: 25px;*/
+  /*background-color: #d9cee3;*/
+  /*height: 450px;*/
+  /*width: 300px;*/
+  /*border: 1px solid black;*/
+  /*border-radius: 15px;*/
 }

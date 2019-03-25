@@ -14,7 +14,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {OrderDetailsComponent} from './Components/order-details/order-details.component';
-import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {TabsComponent} from './Components/tabs/tabs.component';
 import {EditOrderComponent} from './Components/edit-order/edit-order.component';
 
@@ -36,8 +35,7 @@ import {EditOrderComponent} from './Components/edit-order/edit-order.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule,
-    AngularFontAwesomeModule
+    HttpClientModule
   ],
   providers: [OredersService],
   bootstrap: [AppComponent]

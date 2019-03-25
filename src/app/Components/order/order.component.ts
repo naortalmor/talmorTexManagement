@@ -15,20 +15,11 @@ export class OrderComponent implements OnInit {
   @Output() deleteOrder = new EventEmitter<Order>();
   @Output() editOrder = new EventEmitter<Order>();
   @Output() orderDetailsEmitter = new EventEmitter<void>();
-  displayContent = false;
-  editMode = false;
   statusMapper;
+  bool: boolean;
 
   ngOnInit() {
     this.statusMapper = StatusMapper;
-  }
-
-  collapse() {
-    this.displayContent = !this.displayContent;
-  }
-
-  onEditOrder(order: Order) {
-    this.editOrder.emit(order);
   }
 
   onDelete(order: Order) {
@@ -49,5 +40,6 @@ export class OrderComponent implements OnInit {
 
   onOrderClick() {
     this.orderDetailsEmitter.emit();
+    this.bool = !this.bool;
   }
 }

@@ -1,33 +1,33 @@
-<div class="tabs">
-  <div (click)="onTabSelected('all')" class="tab" [class.selected]="selectedTab == 'all'">
-    <span *ngIf="tabsInfo" class="tab-count" style="color: #0062cc;">
-      {{tabsInfo['all']}}
-    </span>
-    <span class="tab-text">
+<div class="tabs row">
+  <div class="row">
+    <div (click)="onTabSelected('all')" class="tab" [class.selected]="selectedTab == 'all'">
       כל ההזמנות
+    <span *ngIf="tabsInfo" class="tab-count" style="color: #0062cc;">
+      ({{tabsInfo['all']}})
     </span>
-  </div>
-  <div (click)="onTabSelected('new')" class="tab" [class.selected]="selectedTab == 'new'">
-    <span *ngIf="tabsInfo" style="color: #28a75691;">
-      {{tabsInfo['new']}}
+    </div>
+    <div (click)="onTabSelected('new')" class="tab" [class.selected]="selectedTab == 'new'">
+      חדשות
+    <span *ngIf="tabsInfo" class="tab-count" style="color: #28a75691;">
+      ({{tabsInfo['new']}})
     </span>
-    חדשות
-  </div>
-  <div (click)="onTabSelected('inProgress')" class="tab" [class.selected]="selectedTab == 'inProgress'">
-    <span *ngIf="tabsInfo" style="color: #d39e00;">
-      {{tabsInfo['inProgress']}}
+    </div>
+    <div (click)="onTabSelected('inProgress')" class="tab" [class.selected]="selectedTab == 'inProgress'">
+      בתהליך
+    <span *ngIf="tabsInfo" class="tab-count" style="color: #d39e00;">
+      ({{tabsInfo['inProgress']}})
     </span>
-    בתהליך
-  </div>
-  <div (click)="onTabSelected('done')" class="tab" [class.selected]="selectedTab == 'done'">
-    <span *ngIf="tabsInfo" style="color: #bd2130b5;">
-      {{tabsInfo['done']}}
+    </div>
+    <div (click)="onTabSelected('done')" class="tab" [class.selected]="selectedTab == 'done'">
+      סוימו
+    <span *ngIf="tabsInfo" class="tab-count" style="color: #bd2130b5;">
+      ({{tabsInfo['done']}})
     </span>
-    סוימו
+    </div>
   </div>
   <div class="new-order-button">
     <span class="new-button" (click)="onNewOrder()">
-      הזמנה חדשה
+      צור הזמנה חדשה
     </span>
   </div>
 </div>

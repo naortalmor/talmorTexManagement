@@ -3,30 +3,32 @@
             [tabsInfo]="tabsInfo"
             (selectedTabChanged)="tabChanged($event)"
             (newOrderEmitter)="createNewOrder()"></app-tabs>
-  <div class="all-orders-container">
-    <div class="table row">
-      <div class="table-cell">
-        שם הלקוח
+  <div class="row">
+    <div class="all-orders-container">
+      <div class="table row">
+        <div class="table-cell">
+          שם הלקוח
+        </div>
+        <div class="table-cell">
+          מספר טלפון
+        </div>
+        <div class="table-cell">
+          סוג בד
+        </div>
+        <div class="table-cell">
+          מחיר
+        </div>
+        <div class="table-cell">
+          סטאטוס
+        </div>
       </div>
-      <div class="table-cell">
-        מספר טלפון
-      </div>
-      <div class="table-cell">
-        סוג בד
-      </div>
-      <div class="table-cell">
-        מחיר
-      </div>
-      <div class="table-cell">
-        סטאטוס
-      </div>
+      <app-order *ngFor="let order of orders"
+                 class="single-order"
+                 [currOrder]="order"
+                 (editOrder)="onEditOrder($event)"
+                 (deleteOrder)="onDeleteOrder($event)"
+                 (orderDetailsEmitter)="displayOrderCard(order)">
+      </app-order>
     </div>
-    <app-order *ngFor="let order of orders"
-               class="single-order"
-               [currOrder]="order"
-               (editOrder)="onEditOrder($event)"
-               (deleteOrder)="onDeleteOrder($event)"
-               (orderDetailsEmitter)="displayOrderCard(order)">
-    </app-order>
   </div>
 </div>
