@@ -17,10 +17,6 @@ body {
   flex-direction: row;
 }
 
-.main {
-  background-color: rgba(229, 211, 229, 0.37);
-}
-
 .column {
   display: flex;
   flex-direction: column;

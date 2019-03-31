@@ -1,9 +1,10 @@
 .all-orders-container {
   display: flex;
   flex-direction: column;
-  margin: 35px 50px 0 50px;
+  padding-top: 35px;
   text-align: center;
   flex: 3;
+  background-color: #f4f8fb;
 }
 
 .order-header {
@@ -22,4 +23,12 @@
 
 .view {
   flex: 1;
+}
+
+.odd {
+  background-color: #dcefed;
+}
+
+.even {
+  background-color: white;
 }
