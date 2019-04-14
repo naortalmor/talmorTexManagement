@@ -34,3 +34,17 @@ app-tabs {
   z-index: 1;
   box-shadow: 0 2px 4px 0 #BBC4BB;
 }
+
+app-order-details {
+  width: 100%;
+}
+
+.nav-item {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fd9b40;
+  border: 1px solid #fd9b40;
+  padding: 5px 15px;
+  margin: 10px;
+  border-radius: 20px;
+}

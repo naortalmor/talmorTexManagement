@@ -1,20 +1,113 @@
 <div class="order-details">
-  <div *ngFor="let currValue of orderKeys">
-    <div class="key-container">
-      <div class="key-header">{{ordersDisplayValues[currValue]}}:</div>
-      <div class="key-data" *ngIf="currValue == 'status'">
-        {{statusMapper[selectedOrder[currValue]] }}
+    <div class="row">
+        <div class="order-details-container">
+          <div class="container-header">
+            פרטי לקוח
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">שם</div>
+              <div class="order-dat-value">{{selectedOrder.customerName}}</div>
+            </div>
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">עיר</div>
+              <div class="order-dat-value">{{selectedOrder.city}}</div>
+            </div>
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">רחוב</div>
+              <div class="order-dat-value">{{selectedOrder.street}}</div>
+            </div>
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">מספר בית</div>
+              <div class="order-dat-value">{{selectedOrder.homeNumber}}</div>
+            </div>
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">כתובת מייל</div>
+              <div class="order-dat-value">{{selectedOrder.email}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="order-details-container">
+          <div class="container-header">
+            פרטי וילון
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">סוג בד</div>
+              <div class="order-dat-value">{{selectedOrder.cloth}}</div>
+            </div>
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">סוג תפירה </div>
+              <div class="order-dat-value">{{selectedOrder.stitching}}</div>
+            </div>
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">גובה</div>
+              <div class="order-dat-value">{{selectedOrder.height}}</div>
+            </div>
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">רוחב</div>
+              <div class="order-dat-value">{{selectedOrder.width}}</div>
+            </div>
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">מספר בית</div>
+              <div class="order-dat-value">{{selectedOrder.homeNumber}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="order-details-container">
+            <div class="container-header">
+              פרטי תשלום
+            </div>
+            <div class="container-data">
+              <div class="row">
+                <div class="order-dat-key">מחיר ההזמנה</div>
+                <div class="order-dat-value">{{selectedOrder.cost}}</div>
+              </div>
+            </div>
+            <div class="container-data">
+              <div class="row">
+                <div class="order-dat-key">מחיר ההתקנה</div>
+                <div class="order-dat-value">{{selectedOrder.installationCost}}</div>
+              </div>
+            </div>
+            <div class="container-data">
+              <div class="row">
+                <div class="order-dat-key">סכום ששולם</div>
+                <div class="order-dat-value">{{selectedOrder.payed}}</div>
+              </div>
+            </div>
+            <div class="container-data">
+              <div class="row">
+                <div class="order-dat-key">יתרה לטלמור</div>
+                <div class="order-dat-value">{{selectedOrder.talmorBalance}}</div>
+              </div>
+            </div>
+            <div class="container-data">
+              <div class="row">
+                <div class="order-dat-key">יתרה למתקין</div>
+                <div class="order-dat-value">{{selectedOrder.installationBalance}}</div>
+              </div>
+            </div>
+          </div>
       </div>
-      <div class="key-data" *ngIf="currValue.includes('Date')">
-        {{selectedOrder[currValue] | date: "dd/MM/yyyy"}}
-      </div>
-      <div class="key-data" *ngIf="currValue !== 'status' && currValue !== 'orderDate'"> {{selectedOrder[currValue] }} </div>
-    </div>
-  </div>
-  <div (click)="onEdit()">
-    ערוך
-  </div>
-  <div (click)="onDelete()">
-    מחק הזמנה
-  </div>
+      <div class="buttons row">
+        <div class="nav-item" (click)="onEdit()">ערוך הזמנה</div>
+        <div class="nav-item" (click)="onDelete()">מחק הזמנה</div>
+      </div>      
 </div>

@@ -2,11 +2,25 @@ import {Component, OnInit, Input, Output, EventEmitter, Inject} from '@angular/c
 import {Order} from '../../Interfaces/order';
 import swal from 'sweetalert2';
 import {StatusMapper} from '../../Interfaces/Statuses';
+import { transition, animate, trigger, state, style } from '@angular/animations';
 
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
-  styleUrls: ['./order.component.css']
+  styleUrls: ['./order.component.css'],
+  animations: [
+    trigger('iconToggle', [
+      state('open', style({
+        transform: 'rotateX(180deg)'
+      })),
+      transition('open => close', [
+        animate('500ms ease')
+      ]),
+      transition('close => open', [
+        animate('500ms ease')
+      ])
+    ])
+  ]
 })
 
 @Inject({StatusMapper})
@@ -36,6 +50,10 @@ export class OrderComponent implements OnInit {
         this.deleteOrder.emit(order);
       }
     });
+  }
+
+  onEdit(order: Order) {
+    this.editOrder.emit(order);
   }
 
   onOrderClick() {

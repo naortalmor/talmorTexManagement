@@ -13,13 +13,20 @@
       {{currOrder.cost}}
     </div>
     <div class="table-cell">
-    <span class="status-badge"
-          [class.new-badge]="currOrder.status == 0"
-          [class.in-progress-badge]="currOrder.status == 1 || currOrder.status == 2 || currOrder.status == 3"
-          [class.done-badge]="currOrder.status == 4">
-      {{statusMapper[currOrder.status]}}
-    </span>
+      <span class="status-badge"
+            [class.new-badge]="currOrder.status == 0"
+            [class.in-progress-badge]="currOrder.status == 1 || currOrder.status == 2 || currOrder.status == 3"
+            [class.done-badge]="currOrder.status == 4">
+        {{statusMapper[currOrder.status]}}
+      </span>
+    </div>
+    <div class="table-cell">
+      <i class="far fa-caret-square-down" [@iconToggle]="bool ? 'open' : 'close'"></i>
     </div>
   </div>
-  <app-order-details *ngIf="bool" [selectedOrder]="currOrder"></app-order-details>
+  <app-order-details *ngIf="bool" 
+                    [selectedOrder]="currOrder" 
+                    (editOrderEmitter)="onEdit($event)" 
+                    (deleteOrderEmitter)="onDelete($event)">
+  </app-order-details>
 </div>
