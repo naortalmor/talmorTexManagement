@@ -48,3 +48,66 @@ app-order-details {
   margin: 10px;
   border-radius: 20px;
 }
+
+.order-details {
+  background-color: #f4f8fb;
+}
+
+.order-details-container {
+  background-color: #f8f8f8;
+  padding: 20px 35px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin: 20px 65px;
+  border-radius: 15px;
+  border: 1px solid #051f44;
+}
+
+.container-header {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.container-data {
+  
+}
+
+.order-dat-key {
+  font-weight: bold
+}
+
+.order-dat-key::after {
+  content: ': ';
+}
+
+.order-dat-value {
+  font-style: italic;
+  margin-right: 7px;
+}
+
+.buttons {
+  justify-content: center;
+  padding: 15px;
+}
+
+.form-button {
+  color: #051f44;
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid #051f44;
+  padding: 5px 15px;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.form-button:hover {
+  background-color: white;
+  color: #fd9b40;
+  border-color: #fd9b40;
+  cursor: pointer;
+}
+
+.testttt {
+  background-color: red
+}

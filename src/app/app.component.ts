@@ -16,16 +16,11 @@ export class AppComponent {
   allOrders: Order[];
   orders: Order[];
   orderToEdit: Order;
-  tabsInfo: TabsInfo = {};
 
   constructor(private orderService: OredersService) {
     this.orderService.getOrders().subscribe((orders) => {
       this.allOrders = orders;
       this.orders = orders;
-      this.tabsInfo['all'] = this.orders.length;
-      this.tabsInfo['new'] = this.orders.filter(curr => curr.status === Statuses.New).length;
-      this.tabsInfo['done'] = this.orders.filter(curr => curr.status === Statuses.Done).length;
-      this.tabsInfo['inProgress'] = this.tabsInfo['all'] - (this.tabsInfo['new'] + this.tabsInfo['done']);
     });
   }
 
@@ -64,11 +59,6 @@ export class AppComponent {
       error => {
         console.log(error);
       });
-  }
-
-  editOrder(order: Order) {
-    this.orderToEdit = order;
-    this.view = 'edit';
   }
 
   updateOrderDetails(updatedOrder: Order) {
@@ -112,6 +102,10 @@ export class AppComponent {
         this.allOrders.splice(index, 1);
         break;
     }
+    this.goToAllOrders();
+  }
+
+  goToAllOrders() {
     this.view = 'orders';
     this.onChangeTab('all');
   }

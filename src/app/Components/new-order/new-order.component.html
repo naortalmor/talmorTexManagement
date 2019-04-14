@@ -1,98 +1,113 @@
-<div class="form-container">
-  <form (ngSubmit)="onSubmit()" #newOrderForm="ngForm">
-    <div class="form-group">
-      <label for="name">שם</label>
-      <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="newOrder.customerName" #name="ngModel">
+<div class="order-details">
+  <div class="row">
+      <div class="order-details-container">
+        <div class="container-header">
+          פרטי לקוח
+        </div>
+        <div class="container-data">
+          <div class="row">
+            <div class="order-dat-key">שם</div>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.customerName">
+          </div>
+        </div>
+        <div class="container-data">
+          <div class="row">
+            <div class="order-dat-key">עיר</div>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.city">
+          </div>
+        </div>
+        <div class="container-data">
+          <div class="row">
+            <div class="order-dat-key">רחוב</div>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.street">
+          </div>
+        </div>
+        <div class="container-data">
+          <div class="row">
+            <div class="order-dat-key">מספר בית</div>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.homeNumber">
+          </div>
+        </div>
+        <div class="container-data">
+          <div class="row">
+            <div class="order-dat-key">כתובת מייל</div>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.email">
+          </div>
+        </div>
+      </div>
+      <div class="order-details-container">
+        <div class="container-header">
+          פרטי וילון
+        </div>
+        <div class="container-data">
+          <div class="row">
+            <div class="order-dat-key">סוג בד</div>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.cloth">
+          </div>
+        </div>
+        <div class="container-data">
+          <div class="row">
+            <div class="order-dat-key">סוג תפירה </div>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.stitching">
+          </div>
+        </div>
+        <div class="container-data">
+          <div class="row">
+            <div class="order-dat-key">גובה</div>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.height">
+          </div>
+        </div>
+        <div class="container-data">
+          <div class="row">
+            <div class="order-dat-key">רוחב</div>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.width">
+          </div>
+        </div>
+      </div>
+      <div class="order-details-container">
+          <div class="container-header">
+            פרטי תשלום
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">מחיר ההזמנה</div>
+              <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.cost">
+            </div>
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">מחיר ההתקנה</div>
+              <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.installationCost">
+            </div>
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">סכום ששולם</div>
+              <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.payed">
+            </div>
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">יתרה לטלמור</div>
+              <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.talmorBalance">
+            </div>
+          </div>
+          <div class="container-data">
+            <div class="row">
+              <div class="order-dat-key">יתרה למתקין</div>
+              <input type="text" class="form-control" id="name" name="name" [(ngModel)]="newOrder.installationBalance">
+            </div>
+          </div>
+        </div>
     </div>
-    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="bad-input">
-      אנא הכנס שם לקוח
-    </div>
-
-    <div class="form-group">
-      <label for="cloth">סוג בד</label>
-      <input type="text" class="form-control" id="cloth" name="cloth" required [(ngModel)]="newOrder.cloth">
-    </div>
-
-    <div class="form-group">
-      <label for="stitching">סוג תפירה</label>
-      <select name="stitching" id="stitching" [(ngModel)]="newOrder.stitching" required>
-        <option>ידני</option>
-        <option>אוטומטי</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="cost">מחיר הזמנה</label>
-      <input type="number" class="form-control" id="cost" name="cost" required [(ngModel)]="newOrder.cost">
-    </div>
-
-    <div class="form-group">
-      <label for="installation-cost">מחיר התקנה</label>
-      <input type="number" class="form-control" id="installation-cost" name="installation-cost" required [(ngModel)]="newOrder.installationCost">
-    </div>
-
-    <div class="form-group">
-      <label for="payed">סכום ששולם</label>
-      <input type="number" class="form-control" id="payed" name="payed" required [(ngModel)]="newOrder.payed">
-    </div>
-
-    <div class="form-group">
-      <label for="cost">יתרה לטלמור</label>
-      <input type="number" class="form-control" id="talmor-balance" name="talmor-balance" required [(ngModel)]="newOrder.talmorBalance">
-    </div>
-
-    <div class="form-group">
-      <label for="installation-balance">יתרה למתקין</label>
-      <input type="number" class="form-control" id="installation-balance" name="installation-balance" required [(ngModel)]="newOrder.installationBalance">
-    </div>
-
-    <div *ngIf="isEditMode" class="form-group">
-      <label for="status">סטאטוס הזמנה</label>
-      <select name="status" id="status" [(ngModel)]="statusSelected" required>
+    <div *ngIf="isEditMode">
+      <label class="order-dat-key" for="status" >סטאטוס הזמנה</label>
+      <select name="status" id="status" [(ngModel)]="statusSelected">
         <option *ngFor="let status of statusesKeys">{{status}}</option>
       </select>
     </div>
-
-    <div class="form-group">
-      <label for="height">גובה</label>
-      <input type="number" class="form-control" id="height" name="height" required [(ngModel)]="newOrder.height">
-    </div>
-
-    <div class="form-group">
-      <label for="width">רוחב</label>
-      <input type="number" class="form-control" id="width" name="width" required [(ngModel)]="newOrder.width">
-    </div>
-
-    <div class="form-group">
-      <label for="date">תאריך מסירה משוער</label>
-      <input type="date" class="form-container" id="date" name="date" required [(ngModel)]="newOrder.supplyDate">
-    </div>
-
-    <div class="form-group">
-      <label for="phone">מספר טלפון</label>
-      <input type="text" class="form-control" id="phone" name="phone" required [(ngModel)]="newOrder.phoneNumber">
-    </div>
-
-    <div class="form-group">
-      <label for="city">עיר</label>
-      <input type="text" class="form-control" id="city" name="city" required [(ngModel)]="newOrder.city">
-    </div>
-
-    <div class="form-group">
-      <label for="street">רחוב</label>
-      <input type="text" class="form-control" id="street" name="street" required [(ngModel)]="newOrder.street">
-    </div>
-
-    <div class="form-group">
-      <label for="homeNumber">מספר בית</label>
-      <input type="text" class="form-control" id="homeNumber" name="homeNumber" required [(ngModel)]="newOrder.homeNumber">
-    </div>
-
-    <div class="form-group">
-      <label for="email">כתובת מייל</label>
-      <input type="text" class="form-contorl" id="email" name="email" required [(ngModel)]="newOrder.email">
-    </div>
-
-    <button type="submit" [disabled]="!newOrderForm.form.valid">שלח</button>
-  </form>
+    <div class="buttons row">
+      <div class="form-button" (click)="onSave()">שמור</div>
+      <div class="form-button" (click)="onCanel()">סגור</div>
+    </div>      
 </div>

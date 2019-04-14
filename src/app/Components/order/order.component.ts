@@ -27,10 +27,11 @@ import { transition, animate, trigger, state, style } from '@angular/animations'
 export class OrderComponent implements OnInit {
   @Input() currOrder: Order;
   @Output() deleteOrder = new EventEmitter<Order>();
-  @Output() editOrder = new EventEmitter<Order>();
+  @Output() updateOrder = new EventEmitter<Order>();
   @Output() orderDetailsEmitter = new EventEmitter<void>();
   statusMapper;
   bool: boolean;
+  view:string = '';
 
   ngOnInit() {
     this.statusMapper = StatusMapper;
@@ -53,11 +54,22 @@ export class OrderComponent implements OnInit {
   }
 
   onEdit(order: Order) {
-    this.editOrder.emit(order);
+    // this.editOrder.emit(order);
+    this.view = 'edit';
   }
 
   onOrderClick() {
     this.orderDetailsEmitter.emit();
+    this.toggleOrder();
+  }
+
+  updateOrderDetails(order:Order) {
+    this.updateOrder.emit(order);
+    this.toggleOrder();
+  }
+
+  toggleOrder() {
     this.bool = !this.bool;
+    this.view = '';
   }
 }

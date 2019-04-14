@@ -5,11 +5,11 @@
   </app-navigation>
   <div class="data-container">
     <div *ngIf="view=='orders'">
-      <app-orders [orders]="orders"
-                  [tabsInfo]="tabsInfo"
+      <app-orders [orders]="orders" 
+                  [allOrders]="allOrders"
                   [selectedTab]="selectedTab"
                   (tabChangedEmitter)="onChangeTab($event)"
-                  (editOrder)="editOrder($event)"
+                  (updateOrder)="updateOrderDetails($event)"
                   (deleteOrder)="deleteOrder($event)"
                   (newOrderEmitter)="onViewChanges('newOrder')">
       </app-orders>
@@ -17,11 +17,8 @@
     <div *ngIf="view=='stats'">
       <app-statistics></app-statistics>
     </div>
-    <div *ngIf="view=='newOrder'">
-      <app-new-order (createOrder)="createNewOrder($event)" [isEditMode]="false"></app-new-order>
-    </div>
-    <div *ngIf="view=='edit'">
-      <app-new-order [orderToEdit]="orderToEdit" [isEditMode]="true" (updateOrder)="updateOrderDetails($event)"></app-new-order>
+    <div *ngIf="view=='newOrder'" class="testttt">
+      <app-new-order (createOrder)="createNewOrder($event)" [isEditMode]="false" (cancel)="goToAllOrders()"></app-new-order>
     </div>
   </div>
 </div>

@@ -1,9 +1,7 @@
 import {Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import swal from 'sweetalert2';
 import {Order} from '../../Interfaces/order';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
 import {Statuses, StatusMapper} from '../../Interfaces/Statuses';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-order',
@@ -17,6 +15,7 @@ export class NewOrderComponent implements OnChanges, OnInit {
   @Input() orderToEdit: Order;
   @Output() createOrder = new EventEmitter<Order>();
   @Output() updateOrder = new EventEmitter<Order>();
+  @Output() cancel = new EventEmitter<void>();
   newOrder: Order = new Order();
   statusesKeys = [];
   statusSelected;
@@ -36,7 +35,7 @@ export class NewOrderComponent implements OnChanges, OnInit {
     }
   }
 
-  onSubmit() {
+  onSave() {
     this.newOrder.description = `${this.newOrder.customerName} מ${this.newOrder.city}`;
     if (this.isEditMode) {
       this.newOrder.status = +StatusMapper[this.statusSelected];
@@ -46,5 +45,9 @@ export class NewOrderComponent implements OnChanges, OnInit {
       this.newOrder.status = Statuses.New;
       this.createOrder.emit(this.newOrder);
     }
+  }
+
+  onCanel() {
+    this.cancel.emit();    
   }
 }

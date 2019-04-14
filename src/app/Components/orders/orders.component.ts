@@ -12,9 +12,9 @@ import {TabsInfo} from '../../Interfaces/tabs-info';
 export class OrdersComponent {
   @Input() orders;
   @Input() selectedTab;
-  @Input() tabsInfo: TabsInfo;
+  @Input() allOrders;
   @Output() tabChangedEmitter = new EventEmitter<string>();
-  @Output() editOrder = new EventEmitter<Order>();
+  @Output() updateOrder = new EventEmitter<Order>();
   @Output() deleteOrder = new EventEmitter<Order>();
   @Output() newOrderEmitter = new EventEmitter<void>();
   ordersToDisplay: Order[] = [];
@@ -24,7 +24,7 @@ export class OrdersComponent {
   }
 
   onEditOrder(order: Order) {
-    this.editOrder.emit(order);
+    this.updateOrder.emit(order);
   }
 
   onDeleteOrder(order: Order) {

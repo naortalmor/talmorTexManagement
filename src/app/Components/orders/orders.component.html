@@ -1,6 +1,6 @@
 <div class="column">
-  <app-tabs [selectedTab]="selectedTab"
-            [tabsInfo]="tabsInfo"
+  <app-tabs [selectedTab]="selectedTab" 
+            [orders]="allOrders"
             (selectedTabChanged)="tabChanged($event)"
             (newOrderEmitter)="createNewOrder()"></app-tabs>
   <div class="row">
@@ -27,7 +27,7 @@
                  [class.even]="i%2 == 0"
                  [class.odd]="i%2 == 1"
                  [currOrder]="order"
-                 (editOrder)="onEditOrder($event)"
+                 (updateOrder)="onEditOrder($event)"
                  (deleteOrder)="onDeleteOrder($event)"
                  (orderDetailsEmitter)="displayOrderCard(order)">
       </app-order>

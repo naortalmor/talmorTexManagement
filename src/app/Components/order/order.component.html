@@ -24,9 +24,15 @@
       <i class="far fa-caret-square-down" [@iconToggle]="bool ? 'open' : 'close'"></i>
     </div>
   </div>
-  <app-order-details *ngIf="bool" 
+  <app-order-details *ngIf="bool && view != 'edit'" 
                     [selectedOrder]="currOrder" 
                     (editOrderEmitter)="onEdit($event)" 
                     (deleteOrderEmitter)="onDelete($event)">
   </app-order-details>
+  <div *ngIf="bool && view=='edit'" style="width: 100%;">
+    <app-new-order [orderToEdit]="currOrder" 
+                   [isEditMode]="true" 
+                   (updateOrder)="updateOrderDetails($event)" 
+                   (cancel)="toggleOrder()"></app-new-order>
+  </div>
 </div>
