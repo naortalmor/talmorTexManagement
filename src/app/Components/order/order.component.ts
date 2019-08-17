@@ -38,19 +38,19 @@ export class OrderComponent implements OnInit {
   }
 
   onDelete(order: Order) {
-    swal({
-      title: 'אתה בטוח?',
-      text: 'האם אתה בטוח במחיקת ההזמנה?',
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'כן!',
-      cancelButtonText: 'לא..',
-      confirmButtonColor: '#ec6c62'
-    }).then((result) => {
-      if (result.value) {
-        this.deleteOrder.emit(order);
-      }
-    });
+    // swal({
+    //   title: 'אתה בטוח?',
+    //   text: 'האם אתה בטוח במחיקת ההזמנה?',
+    //   type: 'warning',
+    //   showCancelButton: true,
+    //   confirmButtonText: 'כן!',
+    //   cancelButtonText: 'לא..',
+    //   confirmButtonColor: '#ec6c62'
+    // }).then((result) => {
+    //   if (result.value) {
+    //     this.deleteOrder.emit(order);
+    //   }
+    // });
   }
 
   onEdit(order: Order) {

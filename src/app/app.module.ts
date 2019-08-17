@@ -8,7 +8,6 @@ import { StatisticsComponent } from './Components/statistics/statistics.componen
 import { NavigationComponent } from './Components/navigation/navigation.component';
 import { NewOrderComponent } from './Components/new-order/new-order.component';
 import { OrderComponent } from './Components/order/order.component';
-import {MaterialModule} from './material.module';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -37,7 +36,6 @@ import { ordersReducer } from './store/reducers/orders.reducer';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule,
     HttpClientModule,
     StoreModule.forRoot({ orders: ordersReducer})
   ],

@@ -49,11 +49,11 @@ export class AppComponent {
   createNewOrder(newOrder: Order) {
     this.orderService.newOrder(newOrder).subscribe(
       (res) => {
-        swal({
-          title: 'בוצע',
-          text: `ההזמנה של ${res.description} נוצרה בהצלחה`,
-          type: 'success'
-        });
+        // swal({
+        //   title: 'בוצע',
+        //   text: `ההזמנה של ${res.description} נוצרה בהצלחה`,
+        //   type: 'success'
+        // });
         this.updateOrdersArray('add', res);
       },
       error => {
@@ -63,22 +63,22 @@ export class AppComponent {
 
   updateOrderDetails(updatedOrder: Order) {
     this.orderService.updateOrder(updatedOrder).subscribe((res) => {
-      swal({
-        title: 'בוצע',
-        text: `ההזמנה של ${res.description} עוכנה בהצלחה`,
-        type: 'success'
-      });
+      // swal({
+      //   title: 'בוצע',
+      //   text: `ההזמנה של ${res.description} עוכנה בהצלחה`,
+      //   type: 'success'
+      // });
       this.updateOrdersArray('edit', res);
     });
   }
 
   deleteOrder(orderToDelete: Order) {
     this.orderService.deleteOrder(orderToDelete).subscribe((res) => {
-      swal({
-        title: 'בוצע',
-        text: `ההזמנה של ${res.description} נמחקה בהצלחה`,
-        type: 'success'
-      });
+      // swal({
+      //   title: 'בוצע',
+      //   text: `ההזמנה של ${res.description} נמחקה בהצלחה`,
+      //   type: 'success'
+      // });
       this.updateOrdersArray('delete', res);
     });
   }

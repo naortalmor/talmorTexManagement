@@ -1,9 +1,9 @@
 import { initOrders } from './../../store/actions.constants';
 import { Injectable } from '@angular/core';
 import {Order} from '../../Interfaces/order';
-import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
 import { Store, props } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class OredersService {
