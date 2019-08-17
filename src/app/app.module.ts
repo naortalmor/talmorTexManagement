@@ -17,6 +17,9 @@ import {OrderDetailsComponent} from './Components/order-details/order-details.co
 import {TabsComponent} from './Components/tabs/tabs.component';
 import {EditOrderComponent} from './Components/edit-order/edit-order.component';
 
+import {StoreModule} from '@ngrx/store';
+import { ordersReducer } from './store/reducers/orders.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,8 @@ import {EditOrderComponent} from './Components/edit-order/edit-order.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({ orders: ordersReducer})
   ],
   providers: [OredersService],
   bootstrap: [AppComponent]
