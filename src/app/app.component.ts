@@ -3,7 +3,6 @@ import {OredersService} from './Services/Orders/oreders.service';
 import {Order} from './Interfaces/order';
 import {Statuses} from './Interfaces/Statuses';
 import swal from 'sweetalert2';
-import {TabsInfo} from './Interfaces/tabs-info';
 
 @Component({
   selector: 'app-root',
@@ -49,11 +48,11 @@ export class AppComponent {
   createNewOrder(newOrder: Order) {
     this.orderService.newOrder(newOrder).subscribe(
       (res) => {
-        // swal({
-        //   title: 'בוצע',
-        //   text: `ההזמנה של ${res.description} נוצרה בהצלחה`,
-        //   type: 'success'
-        // });
+        swal.fire({
+          title: 'בוצע',
+          text: `ההזמנה של ${res.description} נוצרה בהצלחה`,
+          type: 'success'
+        });
         this.updateOrdersArray('add', res);
       },
       error => {
@@ -63,22 +62,22 @@ export class AppComponent {
 
   updateOrderDetails(updatedOrder: Order) {
     this.orderService.updateOrder(updatedOrder).subscribe((res) => {
-      // swal({
-      //   title: 'בוצע',
-      //   text: `ההזמנה של ${res.description} עוכנה בהצלחה`,
-      //   type: 'success'
-      // });
+      swal.fire({
+        title: 'בוצע',
+        text: `ההזמנה של ${res.description} עוכנה בהצלחה`,
+        type: 'success'
+      });
       this.updateOrdersArray('edit', res);
     });
   }
 
   deleteOrder(orderToDelete: Order) {
     this.orderService.deleteOrder(orderToDelete).subscribe((res) => {
-      // swal({
-      //   title: 'בוצע',
-      //   text: `ההזמנה של ${res.description} נמחקה בהצלחה`,
-      //   type: 'success'
-      // });
+      swal.fire({
+        title: 'בוצע',
+        text: `ההזמנה של ${res.description} נמחקה בהצלחה`,
+        type: 'success'
+      });
       this.updateOrdersArray('delete', res);
     });
   }
