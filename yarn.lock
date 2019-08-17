@@ -40,7 +40,7 @@
   optionalDependencies:
     parse5 "^5.0.0"
 
-"@angular/cli@8.2.2":
+"@angular/cli@^8.2.2":
   version "8.2.2"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-8.2.2.tgz#bf255a465cc53e95cea3b9264a589b3ea70472f0"
   dependencies:
@@ -202,9 +202,9 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@ngrx/store@^8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-8.0.1.tgz#5391498d50978ff1bfdbf4e5b04cb647677a5168"
+"@ngrx/store@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-8.2.0.tgz#8374fa803babdbf2a599240a8e546fa726d83edd"
 
 "@schematics/angular@8.2.2":
   version "8.2.2"
