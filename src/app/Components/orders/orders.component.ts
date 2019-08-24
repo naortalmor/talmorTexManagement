@@ -9,7 +9,7 @@ import {TabsInfo} from '../../Interfaces/tabs-info';
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']
 })
-export class OrdersComponent {
+export class OrdersComponent implements OnChanges {
   @Input() orders;
   @Input() selectedTab;
   @Input() allOrders;
@@ -18,6 +18,12 @@ export class OrdersComponent {
   @Output() deleteOrder = new EventEmitter<Order>();
   @Output() newOrderEmitter = new EventEmitter<void>();
   ordersToDisplay: Order[] = [];
+
+  ngOnChanges(changes) {
+    if(changes.orders && this.orders)  {
+      console.log(this.orders)
+    }
+  }
 
   tabChanged(tab: string) {
     this.tabChangedEmitter.emit(tab);

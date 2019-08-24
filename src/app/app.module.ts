@@ -1,3 +1,4 @@
+import { OrdersEffects } from './store/effects/orders.effect';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -18,6 +19,7 @@ import {EditOrderComponent} from './Components/edit-order/edit-order.component';
 
 import {StoreModule} from '@ngrx/store';
 import { ordersReducer } from './store/reducers/orders.reducer';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { ordersReducer } from './store/reducers/orders.reducer';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    EffectsModule.forRoot([OrdersEffects]),
     StoreModule.forRoot({ orders: ordersReducer})
   ],
   providers: [OredersService],

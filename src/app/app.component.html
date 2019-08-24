@@ -5,8 +5,8 @@
   </app-navigation>
   <div class="data-container" [ngSwitch]="view" >
     <div *ngSwitchCase="'orders'">
-      <app-orders [orders]="orders"
-                  [allOrders]="allOrders"
+      <app-orders [orders]="orders$ | async"
+                  [allOrders]="orders$ | async"
                   [selectedTab]="selectedTab"
                   (tabChangedEmitter)="onChangeTab($event)"
                   (updateOrder)="updateOrderDetails($event)"

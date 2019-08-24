@@ -5,3 +5,7 @@ export const initOrders = createAction(
   'init orders',
   props<{orders: Order[]}>()
   );
+
+  export const getOrders = createAction(
+    'get orders'
+  )
