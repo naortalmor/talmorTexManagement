@@ -5,7 +5,7 @@ import {Order} from './Interfaces/order';
 import {Statuses} from './Interfaces/Statuses';
 import swal from 'sweetalert2';
 import { Store } from '@ngrx/store';
-import { initOrders, getOrders } from './store/actions.constants';
+import { getOrders } from './store/actions.constants';
 
 @Component({
   selector: 'app-root',
@@ -21,8 +21,8 @@ export class AppComponent {
 
   constructor(private orderService: OredersService,
     private store: Store<{ orders: Order[]}>) {
-    this.store.dispatch(getOrders());
-    this.orders$ = this.store.select('orders');
+      this.store.dispatch(getOrders());
+      this.orders$ = this.store.select('orders');
   }
 
   onViewChanges(viewToDisplay: string) {

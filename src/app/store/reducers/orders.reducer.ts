@@ -6,5 +6,5 @@ export const initialState = [];
 
 export const ordersReducer = createReducer(
   initialState,
-  on(initOrders, (state, {orders}) => (orders))
+  on(initOrders, (state, {orders}) => (orders)),
 );

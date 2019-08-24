@@ -1,3 +1,4 @@
+import { initOrders } from './../actions.constants';
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType, createEffect } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
@@ -13,7 +14,7 @@ export class OrdersEffects {
       ofType('get orders'),
       mergeMap(() =>
         this.ordersService.getOrders().pipe(
-          map(orders => ({ type: 'init orders', payload: orders })),
+          map(orders => (initOrders({orders}))),
           catchError(() => EMPTY)
         )
       )
