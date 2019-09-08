@@ -1,3 +1,4 @@
+import { OrdersToView } from './pipes/orders-to-view.pipe';
 import { OrdersEffects } from './store/effects/orders.effect';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -31,7 +32,8 @@ import { EffectsModule } from '@ngrx/effects';
     OrderComponent,
     OrderDetailsComponent,
     TabsComponent,
-    EditOrderComponent
+    EditOrderComponent,
+    OrdersToView
   ],
   imports: [
     BrowserModule,

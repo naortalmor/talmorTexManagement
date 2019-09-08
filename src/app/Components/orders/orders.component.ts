@@ -1,15 +1,12 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges} from '@angular/core';
 import {Order} from '../../Interfaces/order';
-import {OredersService} from '../../Services/Orders/oreders.service';
-import {Statuses} from '../../Interfaces/Statuses';
-import {TabsInfo} from '../../Interfaces/tabs-info';
 
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']
 })
-export class OrdersComponent implements OnChanges {
+export class OrdersComponent {
   @Input() orders;
   @Input() selectedTab;
   @Input() allOrders;
@@ -17,13 +14,6 @@ export class OrdersComponent implements OnChanges {
   @Output() updateOrder = new EventEmitter<Order>();
   @Output() deleteOrder = new EventEmitter<Order>();
   @Output() newOrderEmitter = new EventEmitter<void>();
-  ordersToDisplay: Order[] = [];
-
-  ngOnChanges(changes) {
-    if(changes.orders && this.orders)  {
-      console.log(this.orders)
-    }
-  }
 
   tabChanged(tab: string) {
     this.tabChangedEmitter.emit(tab);
@@ -39,9 +29,5 @@ export class OrdersComponent implements OnChanges {
 
   createNewOrder() {
     this.newOrderEmitter.emit();
-  }
-
-  displayOrderCard(order: Order) {
-    this.ordersToDisplay.push(order);
   }
 }

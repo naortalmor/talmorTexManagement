@@ -1,23 +1,23 @@
 <div>
   <app-navigation
-    [selectedView]="view"
-    (viewEventEmitter)="onViewChanges($event)" class="navigation">
+    [selectedView]="view" class="navigation"
+    (viewEventEmitter)="onViewChanges($event)">
   </app-navigation>
   <div class="data-container" [ngSwitch]="view" >
-    <div *ngSwitchCase="'orders'">
+    <div *ngSwitchCase="views.orders">
       <app-orders [orders]="orders$ | async"
                   [allOrders]="orders$ | async"
                   [selectedTab]="selectedTab"
                   (tabChangedEmitter)="onChangeTab($event)"
                   (updateOrder)="updateOrderDetails($event)"
                   (deleteOrder)="deleteOrder($event)"
-                  (newOrderEmitter)="onViewChanges('newOrder')">
+                  (newOrderEmitter)="onViewChanges(views.newOrder)">
       </app-orders>
     </div>
-    <div *ngSwitchCase="'stats'">
+    <div *ngSwitchCase="views.stats">
       <app-statistics></app-statistics>
     </div>
-    <div *ngSwitchCase="'newOrder'">
+    <div *ngSwitchCase="views.newOrder">
       <app-new-order (createOrder)="createNewOrder($event)" [isEditMode]="false" (cancel)="goToAllOrders()"></app-new-order>
     </div>
   </div>

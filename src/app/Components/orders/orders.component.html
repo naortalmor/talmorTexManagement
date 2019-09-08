@@ -1,5 +1,5 @@
 <div class="column">
-  <app-tabs [selectedTab]="selectedTab" 
+  <app-tabs [selectedTab]="selectedTab"
             [orders]="allOrders"
             (selectedTabChanged)="tabChanged($event)"
             (newOrderEmitter)="createNewOrder()"></app-tabs>
@@ -23,13 +23,12 @@
         </div>
         <div class="table-cell"></div>
       </div>
-      <app-order *ngFor="let order of orders; let i=index"
+      <app-order *ngFor="let order of (orders | ordersToView: selectedTab); let i=index"
                  [class.even]="i%2 == 0"
                  [class.odd]="i%2 == 1"
                  [currOrder]="order"
                  (updateOrder)="onEditOrder($event)"
-                 (deleteOrder)="onDeleteOrder($event)"
-                 (orderDetailsEmitter)="displayOrderCard(order)">
+                 (deleteOrder)="onDeleteOrder($event)">
       </app-order>
     </div>
   </div>

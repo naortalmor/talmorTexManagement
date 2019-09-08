@@ -1,8 +1,8 @@
+import { Views } from './enums/views.enums';
 import { Observable } from 'rxjs';
 import {Component} from '@angular/core';
 import {OredersService} from './Services/Orders/oreders.service';
 import {Order} from './Interfaces/order';
-import {Statuses} from './Interfaces/Statuses';
 import swal from 'sweetalert2';
 import { Store } from '@ngrx/store';
 import { getOrders } from './store/actions.constants';
@@ -16,6 +16,7 @@ export class AppComponent {
   view = 'orders';
   selectedTab = 'all';
   allOrders: Order[];
+  views = Views;
   orders$: Observable<Order[]>;
   orderToEdit: Order;
 
@@ -31,20 +32,6 @@ export class AppComponent {
 
   onChangeTab(tab: string) {
     this.selectedTab = tab;
-    // switch (tab) {
-    //   case('all'):
-    //     this.orders$ = this.allOrders;
-    //     break;
-    //   case('done'):
-    //     this.orders$ = this.allOrders.filter(curr => curr.status === Statuses.Done);
-    //     break;
-    //   case ('new'):
-    //     this.orders = this.allOrders.filter(curr => curr.status === Statuses.New);
-    //     break;
-    //   case ('inProgress'):
-    //     this.orders = this.allOrders.filter(curr => curr.status !== Statuses.New && curr.status !== Statuses.Done);
-    //     break;
-    // }
   }
 
   createNewOrder(newOrder: Order) {

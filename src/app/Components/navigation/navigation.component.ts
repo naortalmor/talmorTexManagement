@@ -1,3 +1,4 @@
+import { Views } from '../../enums/views.enums';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
@@ -5,16 +6,12 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent {
   @Input() selectedView;
   @Output() viewEventEmitter = new EventEmitter<String>();
+  views = Views;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  onViewItem(view: String) {
+  onViewItem(view: string) {
     this.viewEventEmitter.emit(view);
   }
 }

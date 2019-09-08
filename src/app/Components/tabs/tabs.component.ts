@@ -14,6 +14,7 @@ export class TabsComponent implements OnChanges {
   @Output() selectedTabChanged = new EventEmitter<String>();
   @Output() newOrderEmitter = new EventEmitter<void>();
   tabsInfo: TabsInfo = {};
+  statuses = Statuses;
 
   ngOnChanges(changes:SimpleChanges) {
     if(changes.orders && this.orders) {
