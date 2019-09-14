@@ -1,4 +1,4 @@
-html, body, app-root, .row {
+html, body, app-root {
   height: 100%;
 }
 
@@ -70,7 +70,7 @@ app-order-details {
 }
 
 .container-data {
-  
+
 }
 
 .order-dat-key {
