@@ -1,11 +1,11 @@
+import { SwalService } from './Services/sweet-alert/swal-service.service';
 import { Views } from './enums/views.enums';
 import { Observable } from 'rxjs';
 import {Component} from '@angular/core';
 import {OredersService} from './Services/Orders/oreders.service';
 import {Order} from './Interfaces/order';
-import swal from 'sweetalert2';
 import { Store } from '@ngrx/store';
-import { getOrders } from './store/actions.constants';
+import { getOrders, addOrder, removeOrder, updateOrder } from './store/actions.constants';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +15,13 @@ import { getOrders } from './store/actions.constants';
 export class AppComponent {
   view = 'orders';
   selectedTab = 'all';
-  allOrders: Order[];
   views = Views;
   orders$: Observable<Order[]>;
   orderToEdit: Order;
 
   constructor(private orderService: OredersService,
-    private store: Store<{ orders: Order[]}>) {
+    private store: Store<{ orders: Order[]}>,
+    private swalService:SwalService) {
       this.store.dispatch(getOrders());
       this.orders$ = this.store.select('orders');
   }
@@ -36,13 +36,10 @@ export class AppComponent {
 
   createNewOrder(newOrder: Order) {
     this.orderService.newOrder(newOrder).subscribe(
-      (res) => {
-        swal.fire({
-          title: 'בוצע',
-          text: `ההזמנה של ${res.description} נוצרה בהצלחה`,
-          type: 'success'
-        });
-        this.updateOrdersArray('add', res);
+      (newOrder:Order) => {
+        this.store.dispatch(addOrder({order: newOrder}));
+        this.swalService.swalSucess(`ההזמנה של ${newOrder.description} נוצרה בהצלחה`);
+        this.goToAllOrders();
       },
       error => {
         console.log(error);
@@ -51,46 +48,18 @@ export class AppComponent {
 
   updateOrderDetails(updatedOrder: Order) {
     this.orderService.updateOrder(updatedOrder).subscribe((res) => {
-      swal.fire({
-        title: 'בוצע',
-        text: `ההזמנה של ${res.description} עוכנה בהצלחה`,
-        type: 'success'
-      });
-      this.updateOrdersArray('edit', res);
+      this.swalService.swalSucess(`ההזמנה של ${res.description} עוכנה בהצלחה`);
+      this.store.dispatch(updateOrder({order: res}));
+      this.goToAllOrders();
     });
   }
 
   deleteOrder(orderToDelete: Order) {
     this.orderService.deleteOrder(orderToDelete).subscribe((res) => {
-      swal.fire({
-        title: 'בוצע',
-        text: `ההזמנה של ${res.description} נמחקה בהצלחה`,
-        type: 'success'
-      });
-      this.updateOrdersArray('delete', res);
+      this.swalService.swalSucess(`ההזמנה של ${res.description} נמחקה בהצלחה`);
+      this.store.dispatch(removeOrder({orderId: res._id}));
+      this.goToAllOrders();
     });
-  }
-
-  updateOrdersArray(action: string, order: Order) {
-    switch (action) {
-      case 'add':
-        this.allOrders.push(order);
-        break;
-      case 'edit':
-        this.allOrders.map((curr) => {
-          if (curr.id === order.id) {
-            return order;
-          } else {
-            return curr;
-          }
-        });
-        break;
-      case 'delete':
-        const index = this.allOrders.lastIndexOf(order);
-        this.allOrders.splice(index, 1);
-        break;
-    }
-    this.goToAllOrders();
   }
 
   goToAllOrders() {

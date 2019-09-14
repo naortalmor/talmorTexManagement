@@ -9,3 +9,18 @@ export const initOrders = createAction(
   export const getOrders = createAction(
     'get orders'
   )
+
+  export const addOrder = createAction(
+    'add order',
+    props<{order:Order}>()
+  )
+
+  export const removeOrder = createAction(
+    'remove order',
+    props<{orderId:number}>()
+  )
+
+  export const updateOrder = createAction(
+    'update order',
+    props<{order: Order}>()
+  )

@@ -1,6 +1,6 @@
 export class Order {
   orderDate: Date;
-  id: number;
+  _id: number;
   customerName: string;
   supplyDate: Date;
   height: Number;

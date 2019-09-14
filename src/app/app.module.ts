@@ -1,3 +1,4 @@
+import { SwalService } from './Services/sweet-alert/swal-service.service';
 import { OrdersToView } from './pipes/orders-to-view.pipe';
 import { OrdersEffects } from './store/effects/orders.effect';
 import { BrowserModule } from '@angular/platform-browser';
@@ -44,7 +45,7 @@ import { EffectsModule } from '@ngrx/effects';
     EffectsModule.forRoot([OrdersEffects]),
     StoreModule.forRoot({ orders: ordersReducer})
   ],
-  providers: [OredersService],
+  providers: [OredersService, SwalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

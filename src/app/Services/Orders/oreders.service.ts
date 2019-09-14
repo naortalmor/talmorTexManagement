@@ -13,12 +13,6 @@ export class OredersService {
               private store: Store<{orders: Order[]}>) {
   }
 
-  init() {
-    this.http.get<Order[]>(this.ordersURI).subscribe(orders => {
-      this.store.dispatch(initOrders({orders}));
-    })
-  }
-
   getOrders(): Observable<Order[]> {
     return (this.http.get<Order[]>(this.ordersURI));
   }
